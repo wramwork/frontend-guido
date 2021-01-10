@@ -1,0 +1,350 @@
+@charset "UTF-8";
+.promos-mas-vendidas h1 {
+  font-size: 3.5em;
+  letter-spacing: 1%;
+  color: #f71818;
+  text-align: center;
+  padding: 1em 0 1em 0; }
+
+.promos-mas-vendidas .card {
+  overflow: hidden;
+  border-radius: 10%;
+  -webkit-border-radius: 10%;
+  -moz-border-radius: 10%;
+  -ms-border-radius: 10%;
+  -o-border-radius: 10%;
+  box-shadow: 12px 12px 15px 0 rgba(0, 0, 0, 0.24);
+  -webkit-box-shadow: 0 12px -50px 0 rgba(0, 0, 0, 0.24);
+  -moz-box-shadow: 0 12px -50px 0 rgba(0, 0, 0, 0.24); }
+  .promos-mas-vendidas .card .card-img-top {
+    height: 15em; }
+  .promos-mas-vendidas .card .card-footer {
+    height: 4em; }
+    .promos-mas-vendidas .card .card-footer .promo-precio {
+      height: 1em;
+      font-size: 2em;
+      color: #f71818; }
+  .promos-mas-vendidas .card .promo-redes {
+    width: 2.5em; }
+
+.promos-mas-vendidas .row {
+  margin-bottom: 1.5em; }
+
+.mas-promociones h1 {
+  font-size: 3.5em;
+  letter-spacing: 1%;
+  color: #f71818;
+  text-align: center;
+  padding: 1.5em 0 1em 0; }
+
+.mas-promociones h3 {
+  font-style: bold; }
+
+.mas-promociones .mas-precio {
+  color: #f71818; }
+
+.pizzas h1 {
+  font-size: 3.5em;
+  letter-spacing: 1%;
+  padding: 1em 0 0em 0;
+  border-bottom: 0.1rem solid lightgray; }
+
+.pizzas li {
+  list-style: none;
+  padding: 0.1em; }
+
+.pizzas .pizzas-nombre {
+  font-size: 1.5em;
+  font-weight: 500; }
+
+.pizzas .pizzas-ingredientes {
+  border-bottom: 0.1rem solid lightgray;
+  color: gray;
+  font-weight: 50; }
+
+.pizzas button .icono-agregar {
+  align-self: flex-end;
+  position: absolute;
+  left: 130vh; }
+
+#myModal2 .modal-content {
+  border: 0.1em solid #f71818;
+  border-radius: 1rem;
+  -webkit-border-radius: 1rem;
+  -moz-border-radius: 1rem;
+  -ms-border-radius: 1rem;
+  -o-border-radius: 1rem;
+  box-shadow: 12px 12px 15px 0 rgba(0, 0, 0, 0.24);
+  -webkit-box-shadow: 0 12px -50px 0 rgba(0, 0, 0, 0.24);
+  -moz-box-shadow: 0 12px -50px 0 rgba(0, 0, 0, 0.24); }
+  #myModal2 .modal-content .modal-body .pizza-tamaño {
+    font-size: 1.7em; }
+  #myModal2 .modal-content .modal-body .pizza-precio {
+    font-size: 1.7em;
+    color: #f71818; }
+  #myModal2 .modal-content .modal-body .card {
+    border: none; }
+  #myModal2 .modal-content .modal-body select {
+    margin: 0 1.5em 1em 0; }
+
+.empanadas .card {
+  border: none;
+  background-color: #e6e6e6;
+  border-bottom: 0.1rem solid lightgray; }
+  .empanadas .card .card-title {
+    font-size: 2em;
+    color: #444040;
+    padding: 1em 0 1em 0; }
+  .empanadas .card select {
+    margin: 0 0.6em 1em 0; }
+  .empanadas .card .aclaraciones {
+    width: 100%;
+    height: 3em;
+    margin: 0.5em 0 0.5em 0; }
+
+.empanadas .empanadas-precio {
+  padding-top: 1.2em;
+  font-size: 1.5em;
+  color: #f71818; }
+
+.empanadas .empanadas-img {
+  width: 100%; }
+
+.canastitas .card {
+  border: none;
+  background-color: #e6e6e6; }
+  .canastitas .card .card-title {
+    font-size: 2em;
+    color: #444040;
+    padding: 1em 0 1em 0; }
+  .canastitas .card select {
+    margin: 0 0.6em 1em 0; }
+  .canastitas .card .aclaraciones {
+    width: 100%;
+    height: 3em;
+    margin: 0.5em 0 0.5em 0; }
+
+.canastitas .canastitas-precio {
+  padding-top: 1.2em;
+  font-size: 1.5em;
+  color: #f71818; }
+
+.canastitas .canastitas-img {
+  width: 100%; }
+
+.otras-comidas h1 {
+  font-size: 3.5em;
+  letter-spacing: 1%;
+  color: #f71818;
+  text-align: center;
+  padding: 1em 0 1em 0; }
+
+.otras-comidas li {
+  list-style: none;
+  padding: 0.1em; }
+
+.otras-comidas .nombre {
+  font-size: 1.5em;
+  font-weight: 500; }
+
+.otras-comidas .ingredientes {
+  border-bottom: 0.1rem solid lightgray;
+  color: gray;
+  font-weight: 50; }
+
+.otras-comidas button .icono-agregar {
+  align-self: flex-end;
+  position: absolute;
+  left: 140vh; }
+
+body {
+  margin: 0% 0% 0% 0%;
+  padding: 0%;
+  border: 0%;
+  font-family: "Myriad Web Pro";
+  background-color: #e6e6e6; }
+  body .icono-agregar {
+    width: 1em; }
+
+.navbar {
+  width: 100%;
+  height: 4em;
+  position: fixed;
+  z-index: 1; }
+  .navbar .logo {
+    width: 4em; }
+  .navbar .navbar-nav {
+    font-size: 2.2vh;
+    position: absolute;
+    left: 20%;
+    text-transform: bold; }
+    .navbar .navbar-nav .nav-link {
+      margin: 3vh;
+      color: black; }
+  .navbar .nav-iconos {
+    width: 2em;
+    margin-right: 0.3em; }
+  .navbar li {
+    display: inline-block; }
+    .navbar li button {
+      font-size: 2.2vh;
+      padding-top: 1.5em; }
+
+.bg-light {
+  background-color: #f3d435 !important; }
+
+.btn-sm {
+  color: black;
+  background-color: #e6e6e6;
+  border-color: black; }
+  .btn-sm select {
+    background-color: red; }
+
+#myModal .modal-xl {
+  width: 50%; }
+
+#myModal .modal-content {
+  border: 0.1em solid #f71818;
+  border-radius: 1rem;
+  -webkit-border-radius: 1rem;
+  -moz-border-radius: 1rem;
+  -ms-border-radius: 1rem;
+  -o-border-radius: 1rem;
+  box-shadow: 12px 12px 15px 0 rgba(0, 0, 0, 0.24);
+  -webkit-box-shadow: 0 12px -50px 0 rgba(0, 0, 0, 0.24);
+  -moz-box-shadow: 0 12px -50px 0 rgba(0, 0, 0, 0.24); }
+  #myModal .modal-content .modal-header {
+    border-bottom: 0em; }
+  #myModal .modal-content .modal-body .card {
+    border: none;
+    background-color: white; }
+    #myModal .modal-content .modal-body .card .btn-danger {
+      background-color: #f71818;
+      color: #fff;
+      background-color: #dc3545;
+      border-color: #dc3545; }
+    #myModal .modal-content .modal-body .card .card-title {
+      padding-top: 0%; }
+  #myModal .modal-content .modal-body select {
+    margin: 0 1.5em 1em 0; }
+  #myModal .modal-content .footer .btn-sm {
+    background-color: #f71818;
+    color: #fff;
+    background-color: #dc3545;
+    border-color: #dc3545; }
+
+#myModal3 .modal-content {
+  border: 0.1em solid #f71818;
+  border-radius: 1rem;
+  -webkit-border-radius: 1rem;
+  -moz-border-radius: 1rem;
+  -ms-border-radius: 1rem;
+  -o-border-radius: 1rem;
+  box-shadow: 12px 12px 15px 0 rgba(0, 0, 0, 0.24);
+  -webkit-box-shadow: 0 12px -50px 0 rgba(0, 0, 0, 0.24);
+  -moz-box-shadow: 0 12px -50px 0 rgba(0, 0, 0, 0.24); }
+  #myModal3 .modal-content .modal-body h1 {
+    font-size: 1.7em;
+    color: #f71818;
+    text-align: center; }
+  #myModal3 .modal-content .modal-body .card {
+    border: none; }
+  #myModal3 .modal-content .modal-body select {
+    margin: 0 1.5em 1em 0; }
+
+#myModal4 .modal-content {
+  border: 0.1em solid #f71818;
+  border-radius: 1rem;
+  -webkit-border-radius: 1rem;
+  -moz-border-radius: 1rem;
+  -ms-border-radius: 1rem;
+  -o-border-radius: 1rem;
+  box-shadow: 12px 12px 15px 0 rgba(0, 0, 0, 0.24);
+  -webkit-box-shadow: 0 12px -50px 0 rgba(0, 0, 0, 0.24);
+  -moz-box-shadow: 0 12px -50px 0 rgba(0, 0, 0, 0.24); }
+  #myModal4 .modal-content .modal-header h3 {
+    font-size: 1.6em;
+    color: #f71818;
+    text-align: center; }
+  #myModal4 .modal-content .modal-body input {
+    width: 100%;
+    height: 3em;
+    background-color: rgba(136, 125, 125, 0.336);
+    color: rgba(255, 255, 255, 0.7);
+    border: 0;
+    border-radius: 15px;
+    margin-top: 0.3em; }
+  #myModal4 .modal-content .footer .btn-sm {
+    background-color: #f71818;
+    color: #fff;
+    background-color: #dc3545;
+    border-color: #dc3545; }
+
+#myModal5 {
+  top: 10vh; }
+  #myModal5 .modal-content {
+    border: 0.1em solid #f71818;
+    border-radius: 1rem;
+    -webkit-border-radius: 1rem;
+    -moz-border-radius: 1rem;
+    -ms-border-radius: 1rem;
+    -o-border-radius: 1rem;
+    box-shadow: 12px 12px 15px 0 rgba(0, 0, 0, 0.24);
+    -webkit-box-shadow: 0 12px -50px 0 rgba(0, 0, 0, 0.24);
+    -moz-box-shadow: 0 12px -50px 0 rgba(0, 0, 0, 0.24); }
+    #myModal5 .modal-content .modal-header {
+      text-align: center; }
+      #myModal5 .modal-content .modal-header .nav-tabs {
+        border-bottom: none;
+        text-align: center; }
+      #myModal5 .modal-content .modal-header a {
+        margin-left: 1em;
+        color: #f71818;
+        text-decoration: none; }
+    #myModal5 .modal-content .modal-body .form-input-group {
+      text-align: center; }
+      #myModal5 .modal-content .modal-body .form-input-group input {
+        background-color: rgba(136, 125, 125, 0.336);
+        color: rgba(255, 255, 255, 0.7);
+        border: 0;
+        border-radius: 15px;
+        margin: 0.5em auto;
+        padding: 0.7em;
+        width: 75%;
+        font-weight: bold;
+        cursor: pointer;
+        opacity: 1;
+        visibility: visible;
+        -webkit-transition: all .3s ease; }
+      #myModal5 .modal-content .modal-body .form-input-group label {
+        text-transform: uppercase; }
+      #myModal5 .modal-content .modal-body .form-input-group .forgot-pass {
+        text-align: center;
+        color: #f71818; }
+
+#footer {
+  padding: 4em 0 2em 0;
+  background-color: #f71818;
+  text-align: center;
+  border: 0%; }
+  #footer .icons {
+    font-size: 1.25em;
+    list-style: none; }
+    #footer .icons li {
+      display: inline-block; }
+  #footer .copyright {
+    color: white;
+    font-size: 0.8em;
+    letter-spacing: 0.225em;
+    list-style: none;
+    padding: 0;
+    text-transform: uppercase; }
+    #footer .copyright li {
+      display: inline-block;
+      line-height: 1em;
+      margin-left: 1em;
+      padding-left: 1em; }
+  #footer .redes-footer {
+    margin: 0.5em;
+    width: 1.5em;
+    height: 1.3em; }
