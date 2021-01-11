@@ -119,7 +119,7 @@ class OtherMeals extends Component {
                     <br />
 
                     {/* <!-- bebidas --> */}
-                    <a name=""></a>
+                    <a name="bebidas"></a>
 
                     <div class="container">
                         <div class="row">

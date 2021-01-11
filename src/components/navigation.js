@@ -1,9 +1,13 @@
 import React, {Component} from 'react';
-
+import LoginModal from "./login";
+import MyOrderModal from "./my_order";
 
 class Navigation extends Component {
+
     render() {
         return (
+            
+            <>
             <header>
                 <nav class="navbar navbar-expand-lg navbar-light bg-light">
                     <img src="imagenes/logo de Los Mirasoles para pagina web.png" alt="logo" class="logo">
@@ -26,16 +30,19 @@ class Navigation extends Component {
                                 <a class="nav-link" href="#bebidas" ><img src="imagenes/iconos/bebidas.png" alt="link a " class="nav-iconos"></img>BEBIDAS</a>
                             </li>
                             <li class="nav-item">
-                                <button type="button" class="btn" data-toggle="modal" data-target="#myModal4"><img src="imagenes/iconos/mi orden.png" alt="link a mi pedido" class="nav-iconos"></img>MI PEDIDO</button>
+                            <button type="button" class="btn" data-toggle="modal" data-target="#myModal4" >
+                                <img src="imagenes/iconos/mi orden.png" alt="link a mi pedido" class="nav-iconos"></img>MI PEDIDO</button>
                             </li>
                             <li class="nav-item">
-                                <button type="button" class="btn" data-toggle="modal" data-target="#myModal5"><img src="imagenes/iconos/iniciar sesion.png" alt="link a mi pedido" class="nav-iconos"></img>INICIAR SESION</button>
+                                <button type="button" class="btn" data-toggle="modal" data-target="#myModal5" ><img src="imagenes/iconos/iniciar sesion.png" alt="link a mi pedido" class="nav-iconos"></img>INICIAR SESION</button>
                             </li>
                         </ul>
                     </div>
                 </nav>
             </header>
-
+        <LoginModal />
+        <MyOrderModal />
+        </>
         );
     }
 }

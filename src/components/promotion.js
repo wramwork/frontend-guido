@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-
+// import PromotionModal from "./promotion";
 
 class Promotions extends Component {
     style = {
@@ -9,6 +9,7 @@ class Promotions extends Component {
     }
     render() {
         return (
+            <>
             <section class="promos-mas-vendidas">
                 <h1><strong>PROMOCIONES MÁS VENDIDAS</strong></h1>
                 <div class="container">
@@ -195,9 +196,11 @@ class Promotions extends Component {
                             </div>
                         </div>
                     </div>
-                </div>
+                </div>  
 
-            </section>
+            </section>  
+            {/* <PromotionModal /> */}
+            </>
         );
     }
 }

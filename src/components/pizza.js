@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
-
+import PizzasModal from "./pizzas_modal";
 
 class Pizza extends Component {
 
     render() {
         return (
             <>
-        <a href = "pizzas"></a>
+        <a name = "pizzas"></a>
             <section class="pizzas">
                 <div class="container">
                     <div class="row">
@@ -99,6 +99,7 @@ class Pizza extends Component {
                     </div>
                 </div>
             </section>
+            <PizzasModal />
         </>
         );
     }
