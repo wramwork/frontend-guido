@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
-
+import MorePromotionModal from './more_promotion_modal'
 
 class MorePromotion extends Component {
 
     render() {
         return (
+            <>
             <section class="mas-promociones">
                 <h1><strong>MÁS PROMOCIONES</strong> </h1>
                 <div class="container">
@@ -50,6 +51,8 @@ class MorePromotion extends Component {
                     </div>
                 </div>
             </section>
+            <MorePromotionModal/>
+        </>
         );
     }
 }

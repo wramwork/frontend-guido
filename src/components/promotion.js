@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-// import PromotionModal from "./promotion";
+import PromotionModal from "./promotion_modal";
 
 class Promotions extends Component {
     style = {
@@ -199,7 +199,7 @@ class Promotions extends Component {
                 </div>  
 
             </section>  
-            {/* <PromotionModal /> */}
+            <PromotionModal />
             </>
         );
     }
