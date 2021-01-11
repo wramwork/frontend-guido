@@ -8,7 +8,13 @@ import Pizza from "./components/pizza";
 import Burritos from "./components/burritos";
 import OtherMeals from "./components/other_meals";
 import Footer from "./components/footer";
+
+import Api from "./common/api";
+
 function App() {
+  const api = new Api;
+  let data = api.getData('box')
+  console.log(data)
   return (
     <>
       <Navigation />

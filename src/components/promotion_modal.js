@@ -4,21 +4,21 @@ class PromotionModal extends Component {
 
   render() {
     return (
-        <section class="modal3">
-        <div class="modal fade" data-backdrop="false" id="myModal3" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" >
-          <div class="modal-dialog modal-sm" role="document">
-            <div class="modal-content">
-              <div class="modal-body">
-                <div class="container-fluid">
-                  <div class="row">
-                    <div class="col-lg-12 col-md-12 col-sm-12">
-                      <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <section className="modal3">
+        <div className="modal fade" data-backdrop="false" id="myModal3" tabIndex="-1" role="dialog" aria-labelledby="myModalLabel" >
+          <div className="modal-dialog modal-sm" role="document">
+            <div className="modal-content">
+              <div className="modal-body">
+                <div className="container-fluid">
+                  <div className="row">
+                    <div className="col-lg-12 col-md-12 col-sm-12">
+                      <button type="button" className="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
                     </div>
                   </div>
-                  <div class="row">
-                    <div class="col-lg-12 col-md-12 col-sm-12 ">
-                      <h1 class="caret"> <strong>CANTIDAD</strong></h1>
-                      <select name="opciones" class="btn btn-danger btn-sm" aria-placeholder="0"> 
+                  <div className="row">
+                    <div className="col-lg-12 col-md-12 col-sm-12 ">
+                      <h1 className="caret"> <strong>CANTIDAD</strong></h1>
+                      <select name="opciones" className="btn btn-danger btn-sm" aria-placeholder="0"> 
                         <option selected>0</option>
                         <option>1</option>
                         <option>2</option>
@@ -33,9 +33,9 @@ class PromotionModal extends Component {
                       </select>
                     </div>
                   </div>
-                  <div class="row">
-                    <div class="col-lg-12 col-md-12 col-sm-12">
-                      <input class="btn btn-danger btn-block" type="submit" value="AGREGAR A MI PEDIDO" />
+                  <div className="row">
+                    <div className="col-lg-12 col-md-12 col-sm-12">
+                      <input className="btn btn-danger btn-block" type="submit" value="AGREGAR A MI PEDIDO" />
                     </div>
                   </div>
                 </div>
