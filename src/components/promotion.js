@@ -21,23 +21,20 @@ class Promotions extends Component {
     }
 
     async componentDidMount() {
-        let data = await this.api_gateway.getData();
-        if (data) {
+
             this.setState(
                 {
                 isLoaded: true,
-                promotionData: data
+                promotionData: await this.api_gateway.getData()
                 }
             )
-        }
+        
       }
 
     promotionRowData = (arr, size) =>{
-        let a = Array.from({ length: Math.ceil(arr.length / size) }, (v, i) =>
+        return Array.from({ length: Math.ceil(arr.length / size) }, (v, i) =>
             arr.slice(i * size, i * size + size)
         );
-        console.log(a);
-        return a;
     }
 
     render() {

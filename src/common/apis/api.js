@@ -3,9 +3,13 @@ export default class ApiGateway {
     constructor(config) {
     this.configEndpoint = this.configEndpoint + config;
     }
-    getData = async () => {
+    getData = async (url="") => {
         try {
-            const response = await fetch(this.configEndpoint)
+            var endpoint = this.configEndpoint
+            if (url) {
+                endpoint = endpoint + `/${url}`
+            }
+            const response = await fetch(endpoint)
             const data = await response.json()
             return data
         } catch (err) {

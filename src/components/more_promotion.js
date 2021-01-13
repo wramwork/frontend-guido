@@ -1,59 +1,61 @@
 import React, { Component } from 'react';
 import MorePromotionModal from './more_promotion_modal'
+import MorePromotionData from "./more_promotion_data";
+import ApiGateway from "../common/apis/api";
 
 class MorePromotion extends Component {
+    constructor(props) {
+        super(props)
+        this.state = {
+            error: null,
+            isLoaded: false,
+            promotionData: []
+        };
+        this.api_gateway = new ApiGateway("more_promotion")
+    }
+
+    async componentDidMount() {
+        this.setState(
+            {
+                isLoaded: true,
+                promotionData: await this.api_gateway.getData()
+            }
+        )
+    }
+    promotionRowData = (arr, size) => {
+        return Array.from({ length: Math.ceil(arr.length / size) }, (v, i) =>
+            arr.slice(i * size, i * size + size)
+        );
+    }
 
     render() {
-        return (
-            <>
-            <section className="mas-promociones">
-                <h1><strong>MÁS PROMOCIONES</strong> </h1>
-                <div className="container">
-                    <div className="row">
-                        <div className="col-lg-5 col-md-5 col-sm-4">
-                            <h3>Promo muzza chica mas cuatro empanadas o canastitas simples.</h3>
-                            <p>Una muzzarella grande mas cuatro porciones de faina.</p>
-                            <h3 className="mas-precio">$540</h3>
+        const { error, isLoaded, items } = this.state;
+        if (error) {
+            return <div>Error: {error.message}</div>;
+        } else if (!isLoaded) {
+            return <div>Loading...</div>;
+        } else {
+            return (
+                <>
+                    <section className="promos-mas-vendidas">
+                        <h1><strong>PROMOCIONES MÁS VENDIDAS</strong></h1>
+                        <div className="container">
+                            {
+                                this.promotionRowData(this.state.promotionData, 2).map(ele => {
+                                    return (
+                                        <div className="row">
+                                            <MorePromotionData promotionData={ele} />
+                                        </div>
+                                    )
+                                })
+                            }
                         </div>
-                        <div className="col-lg-1 col-md-1 col-sm-1">
-                            {/* Button trigger modal  */}
-                            <button type="button" className="btn" data-toggle="modal" data-target="#myModal"><img src="imagenes/iconos/plus (1).svg" className="icono-agregar"></img></button>
-                        </div>
-                        <div className="col-lg-5 col-md-5 col-sm-4">
-                            <h3>Promo muzza grande mas seis empanadas o canastitas simples.</h3>
-                            <p>Una muzzarella grande mas cuatro porciones de faina.</p>
-                            <h3 className="mas-precio">$740</h3>
-                        </div>
-                        <div className="col-lg-1 col-md-1 col-sm-1">
-                            {/* Button trigger modal  */}
-                            <button type="button" className="btn" data-toggle="modal" data-target="#myModal"><img src="imagenes/iconos/plus (1).svg" className="icono-agregar"></img></button>
-                        </div>
-                    </div>
-                    <div className="row">
-                        <div className="col-lg-5 col-md-5 col-sm-4">
-                            <h3>Promo una docena de empanadas de carne suave o picante.</h3>
-                            <p>12 empanadas de carne suave o picante.</p>
-                            <h3 className="mas-precio">$684</h3>
-                        </div>
-                        <div className="col-lg-1 col-md-1 col-sm-1">
-                            {/* Button trigger modal  */}
-                            <button type="button" className="btn" data-toggle="modal" data-target="#myModal"><img src="imagenes/iconos/plus (1).svg" className="icono-agregar"></img></button>
-                        </div>
-                        <div className="col-lg-5 col-md-5 col-sm-4">
-                            <h3>Promo picada de pizza mas seis empanadas o canastitas simples.</h3>
-                            <p>1 picada de pizza mas seis empanadas o canastitas simples.</p>
-                            <h3 className="mas-precio">$870</h3>
-                        </div>
-                        <div className="col-lg-1 col-md-1 col-sm-1">
-                            {/* Button trigger modal  */}
-                            <button type="button" className="btn" data-toggle="modal" data-target="#myModal"><img src="imagenes/iconos/plus (1).svg" className="icono-agregar"></img></button>
-                        </div>
-                    </div>
-                </div>
-            </section>
-            <MorePromotionModal/>
-        </>
-        );
+                    </section>
+                    <MorePromotionModal />
+                </>
+            );
+        }
+
     }
 }
 
