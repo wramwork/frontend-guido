@@ -14,7 +14,7 @@ export default class PromotionsCard extends Component {
                 <div className="card h-100">
                     <img className="card-img-top" src={element.image} alt=""></img>
                     <div className="card-body">
-                        <h4 className="promo-titulo">{element.title}</h4>
+                        <h4 className="promo-titulo">{element.name}</h4>
                         <p className="promo-texto">{element.description}</p>
                         <a href="https://www.instagram.com/pizzerialosmirasoles/?hl=en" target="_blank"><img src="imagenes/iconos/instragram.svg" className="promo-redes" alt="link a instragram"></img></a>
                         <a href="https://www.facebook.com/PizzeriaLosMirasoles" target="_blank"><img src="imagenes/iconos/facebook.svg" className="promo-redes" alt="link a facebook"></img></a>
