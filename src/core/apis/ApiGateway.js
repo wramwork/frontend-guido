@@ -17,5 +17,23 @@ export default class ApiGateway {
            console.log(err)
         } 
     }
+    postData = async (url="",body) => {
+        try {
+            let requestOptions = {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(body)
+            };
+            var endpoint = this.configEndpoint
+            if (url) {
+                endpoint = endpoint + `/${url}`
+            }
+            const response = await fetch(endpoint,requestOptions)
+            const data = await response.json()
+            return data
+        } catch (err) {
+           console.log(err)
+        } 
+    }
 }
         

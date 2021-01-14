@@ -19,7 +19,7 @@ class PizzasModal extends Component {
                     <div className="col-lg-6 col-md-6 col-sm-6 ">
                       <h1 className="pizza-tamaño"><strong>CHICA</strong></h1>
                       <h2 className="pizza-precio"> <strong>$350</strong></h2>
-                      <span className="caret"> <strong>CANTIDAD</strong></span><select name="opciones" className="btn btn-danger btn-sm" aria-placeholder="0"> 
+                      <span className="caret"> <strong>CANTIDAD</strong></span><select name="opciones" className="btn btn-danger btn-sm" > 
                         <option selected>0</option>
                         <option>1</option>
                         <option>2</option>
@@ -36,7 +36,7 @@ class PizzasModal extends Component {
                     <div className="col-lg-6 col-md-6 col-sm-6 ">
                       <h1 className="pizza-tamaño"> <strong>GRANDE</strong></h1>
                       <h2 className="pizza-precio"> <strong>$540</strong></h2>
-                      <span className="caret"><strong>CANTIDAD</strong></span><select name="opciones" className="btn btn-danger btn-sm" aria-placeholder="0"> 0
+                      <span className="caret"><strong>CANTIDAD</strong></span><select name="opciones" className="btn btn-danger btn-sm" > 0
                         <option selected>0</option>
                         <option>1</option>
                         <option>2</option>

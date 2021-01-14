@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import PizzasModal from "./pizzas_modal";
-import PizzaData from "./pizza_data";
-import ApiGateway from "../common/apis/api";
+import PizzasModal from "../shared/components/pizzas_modal";
+import PizzaData from "../shared/components/pizza_data";
+import ApiGateway from "../core/apis/ApiGateway";
 
 class Pizza extends Component {
     constructor(props) {
@@ -27,7 +27,7 @@ class Pizza extends Component {
     }
 
     render() {
-        const { error, isLoaded, items } = this.state;
+        const { error, isLoaded } = this.state;
         if (error) {
             return <div>Error: {error.message}</div>;
         } else if (!isLoaded) {

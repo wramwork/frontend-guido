@@ -1,13 +1,13 @@
 import './App.css';
 
-import Navigation from "./components/navigation";
-import Slider from "./components/slider";
-import Promotions from "./components/promotion";
-import MorePromotion from "./components/more_promotion";
-import Pizza from "./components/pizza";
-import Basket from "./components/burritos";
-import OtherMeals from "./components/other_meals";
-import Footer from "./components/footer";
+import Navigation from "./features/navigation";
+import Slider from "./features/slider";
+import Promotions from "./features/promotion";
+import MorePromotion from "./features/more_promotion";
+import Pizza from "./features/pizza";
+import Basket from "./features/burritos";
+import OtherMeals from "./features/other_meals";
+import Footer from "./features/footer";
 
 function App() {
   return (

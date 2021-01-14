@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
-import MorePromotionModal from './more_promotion_modal'
-import MorePromotionData from "./more_promotion_data";
-import ApiGateway from "../common/apis/api";
+import MorePromotionModal from '../shared/components/more_promotion_modal'
+import MorePromotionData from "../shared/components/more_promotion_data";
+import ApiGateway from "../core/apis/ApiGateway";
+import Common from "./../core/utility/common";
 
 class MorePromotion extends Component {
     constructor(props) {
@@ -12,6 +13,7 @@ class MorePromotion extends Component {
             promotionData: []
         };
         this.api_gateway = new ApiGateway("more_promotion")
+        this.common = new Common();
     }
 
     async componentDidMount() {
@@ -22,14 +24,9 @@ class MorePromotion extends Component {
             }
         )
     }
-    promotionRowData = (arr, size) => {
-        return Array.from({ length: Math.ceil(arr.length / size) }, (v, i) =>
-            arr.slice(i * size, i * size + size)
-        );
-    }
 
     render() {
-        const { error, isLoaded, items } = this.state;
+        const { error, isLoaded } = this.state;
         if (error) {
             return <div>Error: {error.message}</div>;
         } else if (!isLoaded) {
@@ -41,7 +38,7 @@ class MorePromotion extends Component {
                         <h1><strong>PROMOCIONES MÁS VENDIDAS</strong></h1>
                         <div className="container">
                             {
-                                this.promotionRowData(this.state.promotionData, 2).map(ele => {
+                                this.common.slice_object(this.state.promotionData, 2).map(ele => {
                                     return (
                                         <div className="row">
                                             <MorePromotionData promotionData={ele} />

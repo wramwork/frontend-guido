@@ -33,7 +33,7 @@ class LoginModal extends Component {
                             <div className="form-input-group">
                                 <button className="btn btn-danger btn-md">ACEPTAR</button> <br/> <br/>
 
-                                <a className="forgot-pass" href="">¿Olvidaste tu contraseña?</a> 
+                                <a className="forgot-pass" >¿Olvidaste tu contraseña?</a> 
                             </div>
                             
                         </div>

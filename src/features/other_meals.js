@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import OtherMealsData from "./other_meals_data";
-import ApiGateway from "../common/apis/api";
+import OtherMealsData from "../shared/components/other_meals_data";
+import ApiGateway from "../core/apis/ApiGateway";
 
 class OtherMeals extends Component {
     constructor(props) {

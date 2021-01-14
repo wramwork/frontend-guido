@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Dropdown from "./dropdown";
+import Common from "../../core/utility/common";
 
 export default class BasketCard extends Component {
     constructor(props) {
@@ -7,11 +8,7 @@ export default class BasketCard extends Component {
         this.state = {
             basketdata: props.basketdata
         }
-    }
-    dropdownsData = (arr, size) => {
-        return Array.from({ length: Math.ceil(arr.length / size) }, (v, i) =>
-            arr.slice(i * size, i * size + size)
-        );
+        this.common = new Common();
     }
     render() {
         return (
@@ -24,14 +21,13 @@ export default class BasketCard extends Component {
                                     <h5 className="card-title"> <strong style={{ "white-space": "pre-wrap" }}>{element.name}</strong></h5>
                                 </div>
                                 <div className="col-lg-3 col-md-3 col-sm-3">
-                                    <h5 className={element.type=="empanadas"?"empanadas-precio":"canastitas-precio"}>{element.price}</h5>
+                                    <h5 className={element.type==="empanadas"?"empanadas-precio":"canastitas-precio"}>{element.price}</h5>
                                 </div>
                             </div>
                             <div className="row">
                                 {
-                                    this.dropdownsData(element.options, 4).map(ele => {
+                                    this.common.slice_object(element.options, 4).map(ele => {
                                         return (
-
                                             <div className="col-lg-6 col-md-6 col-sm-6">
                                                 <Dropdown data={ele} />
                                             </div>
@@ -43,7 +39,7 @@ export default class BasketCard extends Component {
                                 {
                                     element.image &&
                                     <div class="col-lg-6 col-md-6 col-sm-6">
-                                        <img src={element.image} alt={element.type=="empanadas"?"empanada de carne":"canastitas especiales"} class={element.type == "empanadas"?"empanadas-img":"canastitas-img"} />
+                                        <img src={element.image} alt={element.type==="empanadas"?"empanada de carne":"canastitas especiales"} class={element.type === "empanadas"?"empanadas-img":"canastitas-img"} />
                                     </div>
                             
                                 }

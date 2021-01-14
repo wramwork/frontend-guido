@@ -30,7 +30,7 @@ class MorePromotionModal extends Component {
                             </div>
                             <div className="row">
                               <div className="col">
-                                <select name="" className="btn btn-danger btn-sm" aria-placeholder="0">
+                                <select name="" className="btn btn-danger btn-sm" >
                                   <option selected>0</option>
                                   <option>1</option>
                                   <option>2</option>
@@ -45,7 +45,7 @@ class MorePromotionModal extends Component {
                                   <option>11</option>
                                   <option>12</option>
                                 </select><span className="caret">Carne suave</span> <br />
-                                <select name="" className="btn btn-danger btn-sm" aria-placeholder="0">
+                                <select name="" className="btn btn-danger btn-sm" >
                                   <option selected>0</option>
                                   <option>1</option>
                                   <option>2</option>
@@ -60,7 +60,7 @@ class MorePromotionModal extends Component {
                                   <option>11</option>
                                   <option>12</option>
                                 </select><span className="caret">Carne picante</span> <br />
-                                <select name="" className="btn btn-danger btn-sm" aria-placeholder="0">
+                                <select name="" className="btn btn-danger btn-sm" >
                                   <option selected>0</option>
                                   <option>1</option>
                                   <option>2</option>
@@ -75,7 +75,7 @@ class MorePromotionModal extends Component {
                                   <option>11</option>
                                   <option>12</option>
                                 </select><span className="caret">Jamón y queso</span> <br />
-                                <select name="" className="btn btn-danger btn-sm" aria-placeholder="0">
+                                <select name="" className="btn btn-danger btn-sm" >
                                   <option selected>0</option>
                                   <option>1</option>
                                   <option>2</option>
@@ -90,7 +90,7 @@ class MorePromotionModal extends Component {
                                   <option>11</option>
                                   <option>12</option>
                                 </select><span className="caret">Queso y cebolla</span> <br />
-                                <select name="" className="btn btn-danger btn-sm" aria-placeholder="0">
+                                <select name="" className="btn btn-danger btn-sm" >
                                   <option selected>0</option>
                                   <option>1</option>
                                   <option>2</option>
@@ -105,7 +105,7 @@ class MorePromotionModal extends Component {
                                   <option>11</option>
                                   <option>12</option>
                                 </select><span className="caret">Espinaca</span> <br />
-                                <select name="" className="btn btn-danger btn-sm" aria-placeholder="0">
+                                <select name="" className="btn btn-danger btn-sm" >
                                   <option selected>0</option>
                                   <option>1</option>
                                   <option>2</option>
@@ -120,7 +120,7 @@ class MorePromotionModal extends Component {
                                   <option>11</option>
                                   <option>12</option>
                                 </select><span className="caret">Choclo</span> <br />
-                                <select name="" className="btn btn-danger btn-sm" aria-placeholder="0">
+                                <select name="" className="btn btn-danger btn-sm" >
                                   <option selected>0</option>
                                   <option>1</option>
                                   <option>2</option>
@@ -151,7 +151,7 @@ class MorePromotionModal extends Component {
                             </div>
                             <div className="row">
                               <div className="col">
-                                <select name="" className="btn btn-danger btn-sm" aria-placeholder="0">
+                                <select name="" className="btn btn-danger btn-sm" >
                                   <option selected>0</option>
                                   <option>1</option>
                                   <option>2</option>
@@ -166,7 +166,7 @@ class MorePromotionModal extends Component {
                                   <option>11</option>
                                   <option>12</option>
                                 </select><span className="caret">Panceta y ciruela</span> <br />
-                                <select name="" className="btn btn-danger btn-sm" aria-placeholder="0">
+                                <select name="" className="btn btn-danger btn-sm" >
                                   <option selected>0</option>
                                   <option>1</option>
                                   <option>2</option>
@@ -181,7 +181,7 @@ class MorePromotionModal extends Component {
                                   <option>11</option>
                                   <option>12</option>
                                 </select><span className="caret">Calabresa</span> <br />
-                                <select name="" className="btn btn-danger btn-sm" aria-placeholder="0">
+                                <select name="" className="btn btn-danger btn-sm" >
                                   <option selected>0</option>
                                   <option>1</option>
                                   <option>2</option>
@@ -196,7 +196,7 @@ class MorePromotionModal extends Component {
                                   <option>11</option>
                                   <option>12</option>
                                 </select><span className="caret">Napolitana</span> <br />
-                                <select name="" className="btn btn-danger btn-sm" aria-placeholder="0">
+                                <select name="" className="btn btn-danger btn-sm" >
                                   <option selected>0</option>
                                   <option>1</option>
                                   <option>2</option>
@@ -212,7 +212,7 @@ class MorePromotionModal extends Component {
                                   <option>12</option>
                                 </select> <span className="caret">Jamón y provolone</span> <br />
 
-                                <select name="" className="btn btn-danger btn-sm" aria-placeholder="0">
+                                <select name="" className="btn btn-danger btn-sm" >
                                   <option selected>0</option>
                                   <option>1</option>
                                   <option>2</option>
@@ -228,7 +228,7 @@ class MorePromotionModal extends Component {
                                   <option>12</option>
                                 </select><span className="caret">Panceta y provolone</span> <br />
 
-                                <select name="" className="btn btn-danger btn-sm" aria-placeholder="0">
+                                <select name="" className="btn btn-danger btn-sm" >
                                   <option selected>0</option>
                                   <option>1</option>
                                   <option>2</option>
@@ -244,7 +244,7 @@ class MorePromotionModal extends Component {
                                   <option>12</option>
                                 </select><span className="caret">Rucula</span> <br />
 
-                                <select name="" className="btn btn-danger btn-sm" aria-placeholder="0">
+                                <select name="" className="btn btn-danger btn-sm" >
                                   <option selected>0</option>
                                   <option>1</option>
                                   <option>2</option>
@@ -276,7 +276,7 @@ class MorePromotionModal extends Component {
                 <div className="footer">
                   <div className="row">
                     <div className="col-lg-3 col-md-3 col-sm-3">
-                      <select name="opciones" className="btn btn-danger btn-sm" aria-placeholder="0">
+                      <select name="opciones" className="btn btn-danger btn-sm" >
                         <option selected>0</option>
                         <option>1</option>
                         <option>2</option>

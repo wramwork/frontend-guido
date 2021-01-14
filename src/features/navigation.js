@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
-import LoginModal from "./login";
-import MyOrderModal from "./my_order";
+import LoginModal from "../shared/components/login";
+import MyOrderModal from "../shared/components/my_order";
 
 class Navigation extends Component {
     render() {
@@ -22,7 +22,9 @@ class Navigation extends Component {
                                 </a>
                             </li>
                             <li className="nav-item">
-                                <a className="nav-link" href="#canastitas"><img src="./imagenes/iconos/canastitas.png" alt="link a canastitas" className="nav-iconos"></img>CANASTITAS</a>
+                                <a className="nav-link" href="#canastitas">
+                                    <img src="./imagenes/iconos/canastitas.png" alt="link a canastitas" className="nav-iconos">
+                                    </img>CANASTITAS</a>
                             </li>
                             <li className="nav-item">
                                 <a className="nav-link" href="#otrascomidas" ><img src="imagenes/iconos/otras comidas.png" alt="link a otras comidas" className="nav-iconos"></img>OTRAS COMIDAS</a>

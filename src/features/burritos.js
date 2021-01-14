@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
-import ApiGateway from "../common/apis/api";
-import BasketCard from "./basket_card";
+import ApiGateway from "../core/apis/ApiGateway";
+import BasketCard from "../shared/components/basket_card";
+import Common from "../core/utility/common";
 
-class Basket extends Component {
-
+export default class Basket extends Component {
   constructor(props) {
     super(props)
     this.state = {
@@ -13,6 +13,7 @@ class Basket extends Component {
       canastitasData: []
     };
     this.api_gateway = new ApiGateway("baskets")
+    this.common = new Common();
   }
 
   async componentDidMount() {
@@ -24,32 +25,22 @@ class Basket extends Component {
       }
     )
   }
-  promotionRowData = (arr, size) => {
-    return Array.from({ length: Math.ceil(arr&&arr.length / size) }, (v, i) =>
-      arr.slice(i * size, i * size + size)
-    );
-  }
 
-  async getEmpanadas(){
-    return await this.api_gateway.getData("?type=empanadas")
-  }
-
-  async getCanastitas(){
-    return await this.api_gateway.getData("?type=canastitas")
-  }
-
-  // br = '\n'
   render() {
     return (
       <>
+
+        {
+           
+        }
+
         <a name="empanadas"></a>
         <section className="empanadas">
           <div className="container">
-
-            {this.promotionRowData(this.state.empanadasData, 2).map(ele => {
+            {this.common.slice_object(this.state.empanadasData, 2).map(ele => {
               return (
                 <div className="row">
-                  < BasketCard basketdata={ele} />
+                  < BasketCard key = {ele.id} basketdata={ele} />
                 </div>
               )
             })
@@ -59,21 +50,28 @@ class Basket extends Component {
 
         <a name="canastitas"></a>
         <section className="canastitas">
-        <div className="container">
-        {this.promotionRowData(this.state.canastitasData, 2).map(ele => {
+          <div className="container">
+            {this.common.slice_object(this.state.canastitasData, 2).map(ele => {
               return (
                 <div className="row">
-                  < BasketCard basketdata={ele} />
+                  < BasketCard key = {ele.id} basketdata={ele} />
                 </div>
               )
             })
             }
-            </div>
+          </div>
         </section>
 
       </>
     );
   }
-}
 
-export default Basket
+  async getEmpanadas() {
+    return await this.api_gateway.getData("?type=empanadas")
+  }
+
+  async getCanastitas() {
+    return await this.api_gateway.getData("?type=canastitas")
+  }
+
+}

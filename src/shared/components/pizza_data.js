@@ -12,7 +12,7 @@ export default class PizzaData extends Component {
     return (
         this.state.data.map(element => (
             <>
-            <li className="pizzas-nombre">{element.name} <span><button type="button" className="btn" data-toggle="modal" data-target="#myModal2"><img src="imagenes/iconos/plus (1).svg" className="icono-agregar"></img></button></span></li>
+            <li className="pizzas-nombre">{element.name} <span><button type="button" className="btn" data-toggle="modal" data-target="#myModal2"><img src="imagenes/iconos/plus (1).svg" className="icono-agregar" alt =""/></button></span></li>
             <li className="pizzas-ingredientes" style={{"white-space": "pre-wrap"}}>{element.description}</li>
             </>
         ))
