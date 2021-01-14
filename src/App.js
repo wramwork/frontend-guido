@@ -5,7 +5,7 @@ import Slider from "./components/slider";
 import Promotions from "./components/promotion";
 import MorePromotion from "./components/more_promotion";
 import Pizza from "./components/pizza";
-import Burritos from "./components/burritos";
+import Basket from "./components/burritos";
 import OtherMeals from "./components/other_meals";
 import Footer from "./components/footer";
 
@@ -18,7 +18,7 @@ function App() {
         <Promotions  />
         <MorePromotion />
         <Pizza />
-        <Burritos />
+        <Basket />
         <OtherMeals />
       </main>
       <Footer/>

@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import ApiGateway from "../common/apis/api";
 import BasketCard from "./basket_card";
 
-class Burritos extends Component {
+class Basket extends Component {
 
   constructor(props) {
     super(props)
@@ -76,4 +76,4 @@ class Burritos extends Component {
   }
 }
 
-export default Burritos
+export default Basket
