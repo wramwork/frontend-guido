@@ -29,7 +29,6 @@ class OtherMeals extends Component {
                 isLoaded: true
             }
         )
-        console.log(this.state)
     }
 
     async getMilanesas(){

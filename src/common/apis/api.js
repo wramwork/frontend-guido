@@ -1,4 +1,5 @@
 export default class ApiGateway {
+    // configEndpoint = "https://wram-app-backend.herokuapp.com/";
     configEndpoint = "http://localhost:3000/";
     constructor(config) {
     this.configEndpoint = this.configEndpoint + config;

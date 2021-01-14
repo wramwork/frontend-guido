@@ -193,12 +193,18 @@ body {
 .bg-light {
   background-color: #f3d435 !important; }
 
-.btn-sm {
+/* .btn-sm {
   color: black;
   background-color: #e6e6e6;
   border-color: black; }
   .btn-sm select {
-    background-color: red; }
+    background-color: red; } */
+.btn-sm {
+      padding: .25rem .5rem;
+      font-size: .875rem;
+      line-height: 1.5;
+      border-radius: .2rem;
+  }
 
 #myModal .modal-xl {
   width: 50%; }
