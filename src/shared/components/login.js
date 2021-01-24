@@ -40,7 +40,7 @@ class LoginModal extends Component {
       "expirationInSeconds": 100,
       "refreshToken": "efgh"
     }
-    data = await this.api_gateway.postData(myConstClass.SIGN_UP, data)
+    data = await this.api_gateway.postData(myConstClass.SIGNUP, data)
     const authToken = 'Bearer ' + data.accessToken;
     StorageGateway.set("authToken", authToken);
     StorageGateway.set("refreshToken", data.refreshToken);
