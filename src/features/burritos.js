@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import ApiGateway from "../core/apis/ApiGateway";
 import BasketCard from "../shared/components/basket_card";
 import Common from "../core/utility/common";
+import * as myConstClass from "../core/utility/constants";
 
 export default class Basket extends Component {
   constructor(props) {
@@ -12,7 +13,7 @@ export default class Basket extends Component {
       empanadasData: [],
       canastitasData: []
     };
-    this.api_gateway = new ApiGateway("baskets")
+    this.api_gateway = new ApiGateway()
     this.common = new Common();
   }
 
@@ -67,11 +68,11 @@ export default class Basket extends Component {
   }
 
   async getEmpanadas() {
-    return await this.api_gateway.getData("?type=empanadas")
+    return await this.api_gateway.getData(myConstClass.GET_EMPANADAS)
   }
 
   async getCanastitas() {
-    return await this.api_gateway.getData("?type=canastitas")
+    return await this.api_gateway.getData(myConstClass.GET_CANASTITAS)
   }
 
 }

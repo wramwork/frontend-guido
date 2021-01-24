@@ -205,7 +205,14 @@ body {
       line-height: 1.5;
       border-radius: .2rem;
   }
-
+.col-sm-3 .btn {
+    border: solid 2px red !important;
+    border-radius: 0.5em;
+  }
+.col-sm-1 .btn {
+    border: solid 2px red !important;
+    border-radius: 0.5em;
+  }
 #myModal .modal-xl {
   width: 50%; }
 

@@ -3,6 +3,7 @@ import MorePromotionModal from '../shared/components/more_promotion_modal'
 import MorePromotionData from "../shared/components/more_promotion_data";
 import ApiGateway from "../core/apis/ApiGateway";
 import Common from "./../core/utility/common";
+import * as myConstClass from "../core/utility/constants";
 
 class MorePromotion extends Component {
     constructor(props) {
@@ -12,7 +13,7 @@ class MorePromotion extends Component {
             isLoaded: false,
             promotionData: []
         };
-        this.api_gateway = new ApiGateway("more_promotion")
+        this.api_gateway = new ApiGateway(myConstClass.GET_MORE_PROMOTION)
         this.common = new Common();
     }
 

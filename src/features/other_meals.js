@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import OtherMealsData from "../shared/components/other_meals_data";
 import ApiGateway from "../core/apis/ApiGateway";
+import * as myConstClass from "../core/utility/constants";
 
 class OtherMeals extends Component {
     constructor(props) {
@@ -15,7 +16,7 @@ class OtherMeals extends Component {
             bebidas: []
 
         };
-        this.api_gateway = new ApiGateway("other_meals")
+        this.api_gateway = new ApiGateway()
     }
 
     async componentDidMount() {
@@ -32,19 +33,19 @@ class OtherMeals extends Component {
     }
 
     async getMilanesas(){
-        return await this.api_gateway.getData("?type=milanesas");
+        return await this.api_gateway.getData(myConstClass.GET_MILANESAS);
     }
     async getSandwiches(){
-        return await this.api_gateway.getData("?type=sandwiches");
+        return await this.api_gateway.getData(myConstClass.GET_SANDWICHES);
     }
     async getPlatos(){
-        return await this.api_gateway.getData("?type=platos");
+        return await this.api_gateway.getData(myConstClass.GET_PLATOS);
     }
     async getTartas(){
-        return await this.api_gateway.getData("?type=tartas");
+        return await this.api_gateway.getData(myConstClass.GET_TARTAS);
     }
     async getBebidas(){
-        return await this.api_gateway.getData("?type=bebidas");
+        return await this.api_gateway.getData(myConstClass.GET_BEBIDAS);
     }
 
     render() {

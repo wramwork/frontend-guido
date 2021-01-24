@@ -3,6 +3,7 @@ import PromotionModal from "../shared/components/promotion_modal";
 import PromotionsCard from "../shared/components/promotion_card";
 import ApiGateway from "../core/apis/ApiGateway";
 import Common from "../core/utility/common";
+import * as myConstClass from "../core/utility/constants";
 
 class Promotions extends Component {
     style = {
@@ -18,7 +19,7 @@ class Promotions extends Component {
             isLoaded: false,
             promotionData: []
         };
-        this.api_gateway = new ApiGateway("promotion")
+        this.api_gateway = new ApiGateway(myConstClass.GET_PROMOTIONS)
         this.common = new Common()
     }
 

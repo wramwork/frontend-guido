@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import PizzasModal from "../shared/components/pizzas_modal";
 import PizzaData from "../shared/components/pizza_data";
 import ApiGateway from "../core/apis/ApiGateway";
+import * as myConstClass from "../core/utility/constants";
 
 class Pizza extends Component {
     constructor(props) {
@@ -11,7 +12,7 @@ class Pizza extends Component {
             isLoaded: false,
             pizzasData: []
         };
-        this.api_gateway = new ApiGateway("pizzas")
+        this.api_gateway = new ApiGateway(myConstClass.GET_PIZZAS)
     }
 
     async componentDidMount() {
