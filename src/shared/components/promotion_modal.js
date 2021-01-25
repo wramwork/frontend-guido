@@ -5,15 +5,14 @@ class PromotionModal extends Component {
   state = {
     quantity: 0
   }
-  closeModal = () => {
+  removeModel = () => {
+    console.log(this.props)
     this.props.closeModal()
     this.setState({quantity: 0})
   }
   add_to_cart = () => {
     // selectedData contains the promotion to be ordered. 
-    console.log(this.props.selectedData)
-    console.log(this.state.quantity)
-    this.closeModal()
+    this.removeModel()
   }
   handleState = (value) => {
     this.setState({
@@ -25,7 +24,7 @@ class PromotionModal extends Component {
     return (
       <React.Fragment>
         {visible ? (
-          <section className="modal3">
+          <section className="modal3" >
             <div className="modal fade" data-backdrop="false" id="myModal3" tabIndex="-1" role="dialog" aria-labelledby="myModalLabel" >
               <div className="modal-dialog modal-sm" role="document">
                 <div className="modal-content">
@@ -33,7 +32,7 @@ class PromotionModal extends Component {
                     <div className="container-fluid">
                       <div className="row">
                         <div className="col-lg-12 col-md-12 col-sm-12">
-                          <button type="button" className="close" data-dismiss="modal" aria-label="Close" onClick={this.closeModal}><span aria-hidden="true">&times;</span></button>
+                          <button type="button" className="close" data-dismiss="modal" aria-label="Close" onClick={this.removeModel}><span aria-hidden="true">&times;</span></button>
                         </div>
                       </div>
                       <div className="row">
