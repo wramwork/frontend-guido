@@ -56,7 +56,7 @@ class MyOrderModal extends Component {
                 <div className="modal-content">
                   <div className="modal-header">
                     <h3><strong>MI PEDIDO</strong></h3>
-                    <button type="button" className="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <button type="button" className="close" data-dismiss="modal" aria-label="Close" onClick={this.closeModal}><span aria-hidden="true">&times;</span></button>
                   </div>
                   <div className="modal-body">
                   <form action="" onSubmit={this.confirmOrder}>
