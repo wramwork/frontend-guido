@@ -62,7 +62,7 @@
   color: gray;
   font-weight: 50; }
 
-.pizzas button .icono-agregar {
+.pizzas button {
   align-self: flex-end;
   position: absolute;
   left: 130vh; }
@@ -153,7 +153,7 @@
   color: gray;
   font-weight: 50; }
 
-.otras-comidas button .icono-agregar {
+.otras-comidas button {
   align-self: flex-end;
   position: absolute;
   left: 140vh; }
