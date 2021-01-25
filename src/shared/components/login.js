@@ -70,7 +70,7 @@ class LoginModal extends Component {
   }
 
   closeModal() {
-    this.props.handle()
+    this.props.handle("loginModal")
     this.setState({
       username: "",
       password: "",
@@ -107,12 +107,12 @@ class LoginModal extends Component {
                           <div className="form-bor">
                             <div className="form-input-group">
                               <label>Mail</label> <br />
-                              <input type="text" name="email" value={this.state.value} onChange={this.handleChange} />
+                              <input type="text" name="email" value={this.state.email} onChange={this.handleChange} />
                             </div>
 
                             <div className="form-input-group">
                               <label>Contraseña</label> <br />
-                              <input type="password" name="password" value={this.state.value} onChange={this.handleChange} />
+                              <input type="password" name="password" value={this.state.password} onChange={this.handleChange} />
                             </div> <br />
 
                             <div className="form-input-group">
@@ -132,37 +132,37 @@ class LoginModal extends Component {
                               <label>Nombre y Apellido</label> <br />
                               <div className="row">
                                 <div className="col-md-6">
-                                  <input type="text" name="firstname" placeholder="Nombre" value={this.state.value} onChange={this.handleChange} />
+                                  <input type="text" name="firstname" placeholder="Nombre" value={this.state.firstname} onChange={this.handleChange} />
                                 </div>
                                 <div className="col-md-6">
-                                  <input type="text" name="lastname" placeholder="Apellido" value={this.state.value} onChange={this.handleChange} />
+                                  <input type="text" name="lastname" placeholder="Apellido" value={this.state.lastname} onChange={this.handleChange} />
                                 </div>
                               </div>
                             </div>
 
                             <div className="form-input-group">
                               <label>Mail</label> <br />
-                              <input type="text" name="email" placeholder="" value={this.state.value} onChange={this.handleChange} />
+                              <input type="text" name="email" placeholder="" value={this.state.email} onChange={this.handleChange} />
                             </div>
                             <div className="form-input-group">
                               <label>Nombre de usuario</label> <br />
-                              <input type="text" name="username" placeholder="" value={this.state.value} onChange={this.handleChange} />
+                              <input type="text" name="username" placeholder="" value={this.state.username} onChange={this.handleChange} />
                             </div>
                             <div className="form-input-group">
                               <label>Contraseña</label> <br />
-                              <input type="password" name="password" placeholder="" value={this.state.value} onChange={this.handleChange} />
+                              <input type="password" name="password" placeholder="" value={this.state.password} onChange={this.handleChange} />
                             </div>
                             <div className="form-input-group">
                               <label>Confirmar contraseña</label> <br />
-                              <input type="password" name="repeatedPassword" placeholder="" value={this.state.value} onChange={this.handleChange} />
+                              <input type="password" name="repeatedPassword" placeholder="" value={this.state.repeatedPassword} onChange={this.handleChange} />
                             </div>
                             <div className="form-input-group">
                               <label>Dirección</label> <br />
-                              <input type="text" name="direction" placeholder="" value={this.state.value} onChange={this.handleChange} />
+                              <input type="text" name="direction" placeholder="" value={this.state.direction} onChange={this.handleChange} />
                             </div>
                             <div className="form-input-group">
                               <label>Número de telefono</label> <br />
-                              <input type="text" name="phone" placeholder="" value={this.state.value} onChange={this.handleChange} />
+                              <input type="text" name="phone" placeholder="" value={this.state.phone} onChange={this.handleChange} />
                             </div>
                             <div className="form-input-group"> <br />
                               <button className="btn btn-danger btn-md" >REGISTRARME</button>

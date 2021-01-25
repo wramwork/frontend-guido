@@ -1,10 +1,15 @@
 import React, { Component } from 'react';
+import Dropdown from "./dropdown";
 
 class MorePromotionModal extends Component {
 
   modelStyle = {
     width: '100%',
     height: '3em'
+  }
+  state = {
+    empanadas: ["Carne suave", "Carne picante", "Jamón y queso", "Queso y cebolla", "Espinaca", "Choclo", "Roquefort"],
+    canastitas: ["Panceta y ciruela", "Calabresa", "Napolitana", "Jamón y provolone", "Panceta y provolone", "Rucula", "Pizzita"]
   }
   render() {
     return (
@@ -30,114 +35,14 @@ class MorePromotionModal extends Component {
                             </div>
                             <div className="row">
                               <div className="col">
-                                <select name="" className="btn btn-danger btn-sm" >
-                                  <option selected>0</option>
-                                  <option>1</option>
-                                  <option>2</option>
-                                  <option>3</option>
-                                  <option>4</option>
-                                  <option>5</option>
-                                  <option>6</option>
-                                  <option>7</option>
-                                  <option>8</option>
-                                  <option>9</option>
-                                  <option>10</option>
-                                  <option>11</option>
-                                  <option>12</option>
-                                </select><span className="caret">Carne suave</span> <br />
-                                <select name="" className="btn btn-danger btn-sm" >
-                                  <option selected>0</option>
-                                  <option>1</option>
-                                  <option>2</option>
-                                  <option>3</option>
-                                  <option>4</option>
-                                  <option>5</option>
-                                  <option>6</option>
-                                  <option>7</option>
-                                  <option>8</option>
-                                  <option>9</option>
-                                  <option>10</option>
-                                  <option>11</option>
-                                  <option>12</option>
-                                </select><span className="caret">Carne picante</span> <br />
-                                <select name="" className="btn btn-danger btn-sm" >
-                                  <option selected>0</option>
-                                  <option>1</option>
-                                  <option>2</option>
-                                  <option>3</option>
-                                  <option>4</option>
-                                  <option>5</option>
-                                  <option>6</option>
-                                  <option>7</option>
-                                  <option>8</option>
-                                  <option>9</option>
-                                  <option>10</option>
-                                  <option>11</option>
-                                  <option>12</option>
-                                </select><span className="caret">Jamón y queso</span> <br />
-                                <select name="" className="btn btn-danger btn-sm" >
-                                  <option selected>0</option>
-                                  <option>1</option>
-                                  <option>2</option>
-                                  <option>3</option>
-                                  <option>4</option>
-                                  <option>5</option>
-                                  <option>6</option>
-                                  <option>7</option>
-                                  <option>8</option>
-                                  <option>9</option>
-                                  <option>10</option>
-                                  <option>11</option>
-                                  <option>12</option>
-                                </select><span className="caret">Queso y cebolla</span> <br />
-                                <select name="" className="btn btn-danger btn-sm" >
-                                  <option selected>0</option>
-                                  <option>1</option>
-                                  <option>2</option>
-                                  <option>3</option>
-                                  <option>4</option>
-                                  <option>5</option>
-                                  <option>6</option>
-                                  <option>7</option>
-                                  <option>8</option>
-                                  <option>9</option>
-                                  <option>10</option>
-                                  <option>11</option>
-                                  <option>12</option>
-                                </select><span className="caret">Espinaca</span> <br />
-                                <select name="" className="btn btn-danger btn-sm" >
-                                  <option selected>0</option>
-                                  <option>1</option>
-                                  <option>2</option>
-                                  <option>3</option>
-                                  <option>4</option>
-                                  <option>5</option>
-                                  <option>6</option>
-                                  <option>7</option>
-                                  <option>8</option>
-                                  <option>9</option>
-                                  <option>10</option>
-                                  <option>11</option>
-                                  <option>12</option>
-                                </select><span className="caret">Choclo</span> <br />
-                                <select name="" className="btn btn-danger btn-sm" >
-                                  <option selected>0</option>
-                                  <option>1</option>
-                                  <option>2</option>
-                                  <option>3</option>
-                                  <option>4</option>
-                                  <option>5</option>
-                                  <option>6</option>
-                                  <option>7</option>
-                                  <option>8</option>
-                                  <option>9</option>
-                                  <option>10</option>
-                                  <option>11</option>
-                                  <option>12</option>
-                                </select><span className="caret">Roquefort</span> <br />
+                                {this.state.empanadas.map(element => (
+                                  <>
+                                    <Dropdown limit={13} />
+                                    <span className="caret">{element}</span> <br />
+                                  </>
+                                ))}
                               </div>
                             </div>
-
                           </div>
                         </div>
                       </div>
@@ -151,115 +56,12 @@ class MorePromotionModal extends Component {
                             </div>
                             <div className="row">
                               <div className="col">
-                                <select name="" className="btn btn-danger btn-sm" >
-                                  <option selected>0</option>
-                                  <option>1</option>
-                                  <option>2</option>
-                                  <option>3</option>
-                                  <option>4</option>
-                                  <option>5</option>
-                                  <option>6</option>
-                                  <option>7</option>
-                                  <option>8</option>
-                                  <option>9</option>
-                                  <option>10</option>
-                                  <option>11</option>
-                                  <option>12</option>
-                                </select><span className="caret">Panceta y ciruela</span> <br />
-                                <select name="" className="btn btn-danger btn-sm" >
-                                  <option selected>0</option>
-                                  <option>1</option>
-                                  <option>2</option>
-                                  <option>3</option>
-                                  <option>4</option>
-                                  <option>5</option>
-                                  <option>6</option>
-                                  <option>7</option>
-                                  <option>8</option>
-                                  <option>9</option>
-                                  <option>10</option>
-                                  <option>11</option>
-                                  <option>12</option>
-                                </select><span className="caret">Calabresa</span> <br />
-                                <select name="" className="btn btn-danger btn-sm" >
-                                  <option selected>0</option>
-                                  <option>1</option>
-                                  <option>2</option>
-                                  <option>3</option>
-                                  <option>4</option>
-                                  <option>5</option>
-                                  <option>6</option>
-                                  <option>7</option>
-                                  <option>8</option>
-                                  <option>9</option>
-                                  <option>10</option>
-                                  <option>11</option>
-                                  <option>12</option>
-                                </select><span className="caret">Napolitana</span> <br />
-                                <select name="" className="btn btn-danger btn-sm" >
-                                  <option selected>0</option>
-                                  <option>1</option>
-                                  <option>2</option>
-                                  <option>3</option>
-                                  <option>4</option>
-                                  <option>5</option>
-                                  <option>6</option>
-                                  <option>7</option>
-                                  <option>8</option>
-                                  <option>9</option>
-                                  <option>10</option>
-                                  <option>11</option>
-                                  <option>12</option>
-                                </select> <span className="caret">Jamón y provolone</span> <br />
-
-                                <select name="" className="btn btn-danger btn-sm" >
-                                  <option selected>0</option>
-                                  <option>1</option>
-                                  <option>2</option>
-                                  <option>3</option>
-                                  <option>4</option>
-                                  <option>5</option>
-                                  <option>6</option>
-                                  <option>7</option>
-                                  <option>8</option>
-                                  <option>9</option>
-                                  <option>10</option>
-                                  <option>11</option>
-                                  <option>12</option>
-                                </select><span className="caret">Panceta y provolone</span> <br />
-
-                                <select name="" className="btn btn-danger btn-sm" >
-                                  <option selected>0</option>
-                                  <option>1</option>
-                                  <option>2</option>
-                                  <option>3</option>
-                                  <option>4</option>
-                                  <option>5</option>
-                                  <option>6</option>
-                                  <option>7</option>
-                                  <option>8</option>
-                                  <option>9</option>
-                                  <option>10</option>
-                                  <option>11</option>
-                                  <option>12</option>
-                                </select><span className="caret">Rucula</span> <br />
-
-                                <select name="" className="btn btn-danger btn-sm" >
-                                  <option selected>0</option>
-                                  <option>1</option>
-                                  <option>2</option>
-                                  <option>3</option>
-                                  <option>4</option>
-                                  <option>5</option>
-                                  <option>6</option>
-                                  <option>7</option>
-                                  <option>8</option>
-                                  <option>9</option>
-                                  <option>10</option>
-                                  <option>11</option>
-                                  <option>12</option>
-                                </select><span className="caret">Pizzita</span> <br />
-
+                                {this.state.canastitas.map(element => (
+                                  <>
+                                    <Dropdown limit={13} />
+                                    <span className="caret">{element}</span> <br />
+                                  </>
+                                ))}
                               </div>
                             </div>
                           </div>
@@ -276,20 +78,13 @@ class MorePromotionModal extends Component {
                 <div className="footer">
                   <div className="row">
                     <div className="col-lg-3 col-md-3 col-sm-3">
-                      <select name="opciones" className="btn btn-danger btn-sm" >
-                        <option selected>0</option>
-                        <option>1</option>
-                        <option>2</option>
-                        <option>3</option>
-                        <option>4</option>
-                      </select><span className="caret">  Cantidad</span>
+                      <Dropdown limit={5} />
+                      <span className="caret">  Cantidad</span>
                     </div>
                     <div className="col-lg-9 col-md-9 col-sm-9">
                       <button className="btn btn-danger  btn-block" value="AGREGAR A MI PEDIDO">AGREGAR A MI PEDIDO</button>
                     </div>
-
                   </div> <br />
-
                 </div>
               </div>
             </div>
@@ -297,7 +92,6 @@ class MorePromotionModal extends Component {
         </div>
       </section>
     );
-
   }
 }
 

@@ -4,19 +4,19 @@ import MyOrderModal from "../shared/components/my_order";
 
 class Navigation extends Component {
 
-    state = { isModalOpen: false }
-    handleModalOpen = () => {
+    state = { loginModal: false, myOrderModal: false }
+    handleModalOpen = (event) => {
         this.setState({
-            isModalOpen: true
+            [event.target.name]: true
         })
     }
-    dismissable = () => {
+    dismissable = (key) => {
         this.setState({
-            isModalOpen: false
+            [key]: false
         })
     }
     render() {
-        const { isModalOpen } = this.state;
+        const { loginModal, myOrderModal } = this.state;
         return (
             <>
                 <header>
@@ -46,11 +46,11 @@ class Navigation extends Component {
                                     <a className="nav-link" href="#bebidas" ><img src="imagenes/iconos/bebidas.png" alt="link a " className="nav-iconos"></img>BEBIDAS</a>
                                 </li>
                                 <li className="nav-item">
-                                    <button type="button" className="btn" data-toggle="modal" data-target="#myModal4" >
+                                    <button type="button" className="btn" data-toggle="modal" data-target="#myModal4" onClick={this.handleModalOpen} name="myOrderModal">
                                         <img src="imagenes/iconos/mi orden.png" alt="link a mi pedido" className="nav-iconos"></img>MI PEDIDO</button>
                                 </li>
                                 <li className="nav-item">
-                                    <button type="button" className="btn" data-toggle="modal" data-target="#myModal5" onClick={this.handleModalOpen}>
+                                    <button type="button" className="btn" data-toggle="modal" data-target="#myModal5" onClick={this.handleModalOpen} name="loginModal">
                                         <img src="imagenes/iconos/iniciar sesion.png" alt="link a mi pedido" className="nav-iconos">
                                         </img>
                                     INICIAR SESION
@@ -60,8 +60,8 @@ class Navigation extends Component {
                         </div>
                     </nav>
                 </header>
-                <LoginModal visible={isModalOpen} handle={this.dismissable} />
-                <MyOrderModal />
+                <LoginModal visible={loginModal} handle={this.dismissable} />
+                <MyOrderModal visible={myOrderModal} handle={this.dismissable}/>
             </>
         );
     }

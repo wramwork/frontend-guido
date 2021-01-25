@@ -4,19 +4,18 @@ export default class Dropdown extends Component {
 
     constructor(props) {
         super(props)
-        this.state = {
-            data: props.data
-        }
     }
+    handleChange = (e) => {
+        this.props.quantity(e.target.value);
+      }    
     render() {
+        const {limit} = this.props;
         return (
-            this.state.data.map(element => (
                 <>
-                    <select name="" className="btn btn-danger  btn-sm">
+                    <select name="" className="btn btn-danger  btn-sm" onChange={this.handleChange}>
                         {
                             (() => {
                                 let rows = [];
-                                let limit = 13;
                                 for (let i = 0; i < limit; i++) {
                                     if (i===0) {
                                         rows.push(<option selected>{i}</option>)
@@ -28,9 +27,8 @@ export default class Dropdown extends Component {
                                 return rows
                             })()
                         }
-                    </select><span className="caret">{element}</span> <br />
+                    </select>
                 </>
-            ))
         )
     }
 }
