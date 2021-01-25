@@ -17,7 +17,9 @@ class Promotions extends Component {
         this.state = {
             error: null,
             isLoaded: false,
-            promotionData: []
+            promotionData: [],
+            visible: false,
+            selectedData: {}
         };
         this.api_gateway = new ApiGateway(myConstClass.GET_PROMOTIONS)
         this.common = new Common()
@@ -32,9 +34,20 @@ class Promotions extends Component {
         )
 
     }
-
+    handleModalOpen = (data) => {
+        this.setState({
+            visible: true,
+            selectedData: data
+        })
+    }
+    dismissable = () => {
+        this.setState({
+            visible: false,
+            selectedData: {},
+        })
+    }
     render() {
-        const { error, isLoaded } = this.state;
+        const { error, isLoaded, visible, selectedData} = this.state;
         if (error) {
             return <div>Error: {error.message}</div>;
         } else if (!isLoaded) {
@@ -49,14 +62,14 @@ class Promotions extends Component {
                                 this.common.slice_object(this.state.promotionData, 4).map(ele => {
                                     return (
                                         <div className="row">
-                                            <PromotionsCard promotionData={ele} />
+                                            <PromotionsCard promotionData={ele} openModal={this.handleModalOpen}/>
                                         </div>
                                     )
                                 })
                             }
                         </div>
                     </section>
-                    <PromotionModal />
+                    <PromotionModal visible={visible} closeModal={this.dismissable} selectedData={selectedData}/>
                 </>
             );
         }

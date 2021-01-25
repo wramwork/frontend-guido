@@ -13,6 +13,7 @@ export const GET_TARTAS = "other_meals/?type=tartas";
 export const GET_BEBIDAS = "other_meals/?type=bebidas";
 export const GET_PIZZAS = "pizzas/";
 export const GET_PROMOTIONS = "promotion/";
+export const CONFIRM_ORDER = "confirm-order/";
 
 export const AUTHENTICATION_REQUIRED = [
     

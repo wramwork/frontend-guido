@@ -21,7 +21,7 @@ export default class BasketCard extends Component {
                                     <h5 className="card-title"> <strong style={{ "white-space": "pre-wrap" }}>{element.name}</strong></h5>
                                 </div>
                                 <div className="col-lg-3 col-md-3 col-sm-3">
-                                    <h5 className={element.type==="empanadas"?"empanadas-precio":"canastitas-precio"}>{element.price}</h5>
+                                    <h5 className={element.type === "empanadas" ? "empanadas-precio" : "canastitas-precio"}>{element.price}</h5>
                                 </div>
                             </div>
                             <div className="row">
@@ -29,22 +29,25 @@ export default class BasketCard extends Component {
                                     this.common.slice_object(element.options, 4).map(ele => {
                                         return (
                                             <div className="col-lg-6 col-md-6 col-sm-6">
-                                                <Dropdown data={ele} />
+                                                {ele.map(element => (
+                                                    <>
+                                                        <Dropdown limit={13}/>
+                                                        <span className="caret">{element}</span> <br />
+                                                    </>
+                                                ))}
                                             </div>
 
                                         )
                                     })
-                                    
                                 }
                                 {
                                     element.image &&
                                     <div class="col-lg-6 col-md-6 col-sm-6">
-                                        <img src={element.image} alt={element.type==="empanadas"?"empanada de carne":"canastitas especiales"} class={element.type === "empanadas"?"empanadas-img":"canastitas-img"} />
+                                        <img src={element.image} alt={element.type === "empanadas" ? "empanada de carne" : "canastitas especiales"} class={element.type === "empanadas" ? "empanadas-img" : "canastitas-img"} />
                                     </div>
-                            
+
                                 }
                             </div>
-                            
                             <input type="text" placeholder="Aclaraciones" className="aclaraciones"></input>
                             <button className="btn btn-danger  btn-block" value="AGREGAR A MI PEDIDO">AGREGAR A MI PEDIDO</button>
                         </div>

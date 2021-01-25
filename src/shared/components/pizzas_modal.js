@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import Dropdown from "./dropdown";
 
 class PizzasModal extends Component {
 
@@ -19,37 +20,14 @@ class PizzasModal extends Component {
                     <div className="col-lg-6 col-md-6 col-sm-6 ">
                       <h1 className="pizza-tamaño"><strong>CHICA</strong></h1>
                       <h2 className="pizza-precio"> <strong>$350</strong></h2>
-                      <span className="caret"> <strong>CANTIDAD</strong></span><select name="opciones" className="btn btn-danger btn-sm" > 
-                        <option selected>0</option>
-                        <option>1</option>
-                        <option>2</option>
-                        <option>3</option>
-                        <option>4</option>
-                        <option>5</option>
-                        <option>6</option>
-                        <option>7</option>
-                        <option>8</option>
-                        <option>9</option>
-                        <option>10</option>
-                      </select>
+                      <span className="caret"> <strong>CANTIDAD</strong></span>
+                      <Dropdown limit={11}/>
                     </div>
                     <div className="col-lg-6 col-md-6 col-sm-6 ">
                       <h1 className="pizza-tamaño"> <strong>GRANDE</strong></h1>
                       <h2 className="pizza-precio"> <strong>$540</strong></h2>
-                      <span className="caret"><strong>CANTIDAD</strong></span><select name="opciones" className="btn btn-danger btn-sm" > 0
-                        <option selected>0</option>
-                        <option>1</option>
-                        <option>2</option>
-                        <option>3</option>
-                        <option>4</option>
-                        <option>5</option>
-                        <option>6</option>
-                        <option>7</option>
-                        <option>8</option>
-                        <option>9</option>
-                        <option>10</option>
-                      </select> <br />
-                    
+                      <span className="caret"><strong>CANTIDAD</strong></span>
+                      <Dropdown limit={11}/>
                     </div>
                   </div>
                   <div className="row">
@@ -63,9 +41,7 @@ class PizzasModal extends Component {
           </div>
         </div>
       </section>
-
     );
-    
   }
 }
 

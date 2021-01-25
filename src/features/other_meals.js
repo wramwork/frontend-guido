@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import OtherMealsData from "../shared/components/other_meals_data";
 import ApiGateway from "../core/apis/ApiGateway";
 import * as myConstClass from "../core/utility/constants";
+import PromotionModal from "../shared/components/promotion_modal";
 
 class OtherMeals extends Component {
     constructor(props) {
@@ -13,8 +14,9 @@ class OtherMeals extends Component {
             sandwiches: [],
             platos: [],
             tartas: [],
-            bebidas: []
-
+            bebidas: [],
+            visible: false,
+            selectedData: {}
         };
         this.api_gateway = new ApiGateway()
     }
@@ -47,11 +49,23 @@ class OtherMeals extends Component {
     async getBebidas(){
         return await this.api_gateway.getData(myConstClass.GET_BEBIDAS);
     }
-
+    handleModalOpen = (data) => {
+        this.setState({
+            visible: true,
+            selectedData: data
+        })
+    }
+    dismissable = () => {
+        this.setState({
+            visible: false,
+            selectedData: {},
+        })
+    }
     render() {
-        if (this.state.error) {
-            return <div>Error: {this.state.error.message}</div>;
-        } else if (!this.state.isLoaded) {
+        const { error, isLoaded, visible, selectedData} = this.state;
+        if (error) {
+            return <div>Error: {error.message}</div>;
+        } else if (!isLoaded) {
             return <div>Loading...</div>;
         } else {
         return (
@@ -64,7 +78,7 @@ class OtherMeals extends Component {
                         <div className="row">
                             <div className="col-lg-12 col-md-12 mb-12">
                                 <h3><strong> MILANESAS AL PLATO</strong> </h3>
-                                <ul><OtherMealsData data={this.state.milanesas} /></ul>
+                                <ul><OtherMealsData data={this.state.milanesas} openModal={this.handleModalOpen}/></ul>
                             </div>
                         </div>
                     </div>
@@ -75,7 +89,7 @@ class OtherMeals extends Component {
 
                             <div className="col-lg-12 col-md-12 mb-12">
                                 <h3><strong> SANDWICHES EN PAN DE PIZZA</strong> </h3>
-                                <ul><OtherMealsData data={this.state.sandwiches} /></ul>
+                                <ul><OtherMealsData data={this.state.sandwiches} openModal={this.handleModalOpen}/></ul>
                             </div>
                         </div>
                     </div>
@@ -86,7 +100,7 @@ class OtherMeals extends Component {
 
                             <div className="col-lg-12 col-md-12 mb-12">
                                 <h3><strong>PLATOS CASEROS</strong> </h3>
-                                <ul><OtherMealsData data={this.state.platos} /></ul>
+                                <ul><OtherMealsData data={this.state.platos} openModal={this.handleModalOpen}/></ul>
                             </div>
                         </div>
                     </div>
@@ -96,7 +110,7 @@ class OtherMeals extends Component {
                         <div className="row">
                             <div className="col-lg-12 col-md-12 mb-12">
                                 <h3><strong> TARTAS INDIVIDUALES</strong> </h3>
-                                <ul><OtherMealsData data={this.state.tartas} /></ul>
+                                <ul><OtherMealsData data={this.state.tartas} openModal={this.handleModalOpen}/></ul>
                             </div>
                         </div>
                     </div>
@@ -107,11 +121,12 @@ class OtherMeals extends Component {
                         <div className="row">
                             <div className="col-lg-12 col-md-12 mb-12">
                                 <h3><strong> BEBIDAS</strong> </h3>
-                                <ul><OtherMealsData data={this.state.bebidas} /></ul>
+                                <ul><OtherMealsData data={this.state.bebidas} openModal={this.handleModalOpen}/></ul>
                             </div>
                         </div>
                     </div>
                 </section> <br /> <br />
+                <PromotionModal visible={visible} closeModal={this.dismissable} selectedData={selectedData}/>
             </>
         );
     }

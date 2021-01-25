@@ -7,6 +7,9 @@ export default class PromotionsCard extends Component {
             promotiondata: props.promotionData
         }
     }
+    openModal = data => e => {
+        this.props.openModal(data)
+      }
   render() {
     return (
         this.state.promotiondata.map(element => (
@@ -25,7 +28,7 @@ export default class PromotionsCard extends Component {
                                 <h4 className="promo-precio">{element.price}</h4>
                             </div>
                             <div className="col-lg-3 col-md-3 col-sm-3">
-                                <button type="button" className="btn" data-toggle="modal" data-target="#myModal3"><img src="imagenes/iconos/plus (1).svg" alt="" className="icono-agregar"/></button>
+                                <button type="button" className="btn" data-toggle="modal" data-target="#myModal3" onClick={this.openModal(element)}><img src="imagenes/iconos/plus (1).svg" alt="" className="icono-agregar"/></button>
                             </div>
                         </div>
                     </div>
