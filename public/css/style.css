@@ -73,6 +73,7 @@
   -webkit-border-radius: 1rem;
   -moz-border-radius: 1rem;
   -ms-border-radius: 1rem;
+  top: 10vh;
   -o-border-radius: 1rem;
   box-shadow: 12px 12px 15px 0 rgba(0, 0, 0, 0.24);
   -webkit-box-shadow: 0 12px -50px 0 rgba(0, 0, 0, 0.24);
@@ -224,6 +225,7 @@ body {
   -webkit-border-radius: 1rem;
   -moz-border-radius: 1rem;
   -ms-border-radius: 1rem;
+  top: 10vh;
   -o-border-radius: 1rem;
   box-shadow: 12px 12px 15px 0 rgba(0, 0, 0, 0.24);
   -webkit-box-shadow: 0 12px -50px 0 rgba(0, 0, 0, 0.24);
@@ -254,6 +256,7 @@ body {
   -webkit-border-radius: 1rem;
   -moz-border-radius: 1rem;
   -ms-border-radius: 1rem;
+  top: 10vh;
   -o-border-radius: 1rem;
   box-shadow: 12px 12px 15px 0 rgba(0, 0, 0, 0.24);
   -webkit-box-shadow: 0 12px -50px 0 rgba(0, 0, 0, 0.24);
@@ -273,6 +276,7 @@ body {
   -webkit-border-radius: 1rem;
   -moz-border-radius: 1rem;
   -ms-border-radius: 1rem;
+  top: 10vh;
   -o-border-radius: 1rem;
   box-shadow: 12px 12px 15px 0 rgba(0, 0, 0, 0.24);
   -webkit-box-shadow: 0 12px -50px 0 rgba(0, 0, 0, 0.24);
