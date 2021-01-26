@@ -1,19 +1,45 @@
 import React, { Component } from 'react';
 import Dropdown from "./dropdown";
 import Common from "../../core/utility/common";
+import CartOperation from "../../core/utility/cart";
 
 export default class BasketCard extends Component {
     constructor(props) {
         super(props)
         this.state = {
-            basketdata: props.basketdata
+            quantity: {},
+            clarifications: ""
         }
         this.common = new Common();
+        this.CartOperation = new CartOperation()
+    }
+    add_to_cart = data => async(e) => {
+        var cartData = {
+          data: data,
+          quantity: this.state.quantity,
+          clarifications: this.state.clarifications
+        }
+        await this.CartOperation.setNewCartElement(cartData)
+        console.log(cartData)
+        this.removeModal()
+      }
+
+    removeModal = () => {
+    this.state.quantity = {}
+    this.setState({clarifications: ""})
+    }
+    handleState = (value, element) => {
+        this.state.quantity[element] = value
+      }
+    handleChange = (event) => {
+    this.setState({
+        [event.target.name]: event.target.value
+    });
     }
     render() {
+        const {element} = this.props;
         return (
-            this.state.basketdata.map(element => (
-                <div className="col-lg-6 col-sm-12 col-sm-12">
+                
                     <div className="card">
                         <div className="card-body">
                             <div className="row">
@@ -31,7 +57,7 @@ export default class BasketCard extends Component {
                                             <div className="col-lg-6 col-md-6 col-sm-6">
                                                 {ele.map(element => (
                                                     <>
-                                                        <Dropdown limit={13}/>
+                                                        <Dropdown limit={13} quantity={this.handleState} name={element} />
                                                         <span className="caret">{element}</span> <br />
                                                     </>
                                                 ))}
@@ -48,12 +74,11 @@ export default class BasketCard extends Component {
 
                                 }
                             </div>
-                            <input type="text" placeholder="Aclaraciones" className="aclaraciones"></input>
-                            <button className="btn btn-danger  btn-block" value="AGREGAR A MI PEDIDO">AGREGAR A MI PEDIDO</button>
+                            <input type="text" placeholder="Aclaraciones" className="aclaraciones" name={"clarifications"} value={this.state.clarifications} onChange={this.handleChange}></input>
+                            <button className="btn btn-danger  btn-block" value="AGREGAR A MI PEDIDO" onClick={this.add_to_cart(element)}>AGREGAR A MI PEDIDO</button>
                         </div>
                     </div>
-
-                </div>))
+                
         )
     }
 }

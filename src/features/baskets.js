@@ -28,20 +28,28 @@ export default class Basket extends Component {
   }
 
   render() {
+    const { error, isLoaded, visible, selectedData} = this.state;
+    if (error) {
+      return <div>Error: {error.message}</div>;
+  } else if (!isLoaded) {
+      return <div>Loading...</div>;
+  } else {
     return (
       <>
-
-        {
-           
-        }
-
         <a name="empanadas"></a>
         <section className="empanadas">
           <div className="container">
             {this.common.slice_object(this.state.empanadasData, 2).map(ele => {
               return (
                 <div className="row">
-                  < BasketCard key = {ele.id} basketdata={ele} />
+                  {
+                    ele.map(element => {
+                      return (
+                      <div className="col-lg-6 col-sm-12 col-sm-12">
+                      <BasketCard element={element} />
+                      </div>)
+                    })
+                  }
                 </div>
               )
             })
@@ -55,7 +63,15 @@ export default class Basket extends Component {
             {this.common.slice_object(this.state.canastitasData, 2).map(ele => {
               return (
                 <div className="row">
-                  < BasketCard key = {ele.id} basketdata={ele} />
+                  {
+                    ele.map(element => {
+                      return(
+                      <div className="col-lg-6 col-sm-12 col-sm-12">
+                      <BasketCard element={element} />
+                      </div>
+                      )
+                    })
+                  }
                 </div>
               )
             })
@@ -65,6 +81,7 @@ export default class Basket extends Component {
 
       </>
     );
+    }
   }
 
   async getEmpanadas() {

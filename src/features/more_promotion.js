@@ -11,7 +11,9 @@ class MorePromotion extends Component {
         this.state = {
             error: null,
             isLoaded: false,
-            promotionData: []
+            promotionData: [],
+            visible: false,
+            selectedData: {}
         };
         this.api_gateway = new ApiGateway(myConstClass.GET_MORE_PROMOTION)
         this.common = new Common();
@@ -25,9 +27,20 @@ class MorePromotion extends Component {
             }
         )
     }
-
+    handleModalOpen = (data) => {
+        this.setState({
+            visible: true,
+            selectedData: data
+        })
+    }
+    dismissable = () => {
+        this.setState({
+            visible: false,
+            selectedData: {},
+        })
+    }
     render() {
-        const { error, isLoaded } = this.state;
+        const { error, isLoaded, visible, selectedData} = this.state;
         if (error) {
             return <div>Error: {error.message}</div>;
         } else if (!isLoaded) {
@@ -36,20 +49,20 @@ class MorePromotion extends Component {
             return (
                 <>
                     <section className="promos-mas-vendidas">
-                        <h1><strong>PROMOCIONES MÁS VENDIDAS</strong></h1>
+                        <h1><strong>MAS PROMOCIONES</strong></h1>
                         <div className="container">
                             {
                                 this.common.slice_object(this.state.promotionData, 2).map(ele => {
                                     return (
                                         <div className="row">
-                                            <MorePromotionData promotionData={ele} />
+                                            <MorePromotionData promotionData={ele} openModal={this.handleModalOpen}/>
                                         </div>
                                     )
                                 })
                             }
                         </div>
                     </section>
-                    <MorePromotionModal />
+                    <MorePromotionModal visible={visible} closeModal={this.dismissable} selectedData={selectedData}/>
                 </>
             );
         }

@@ -10,7 +10,9 @@ class Pizza extends Component {
         this.state = {
             error: null,
             isLoaded: false,
-            pizzasData: []
+            pizzasData: [],
+            visible: false,
+            selectedData: {},
         };
         this.api_gateway = new ApiGateway(myConstClass.GET_PIZZAS)
     }
@@ -26,9 +28,20 @@ class Pizza extends Component {
             )
         }
     }
-
+    handleModalOpen = (data) => {
+        this.setState({
+            visible: true,
+            selectedData: data
+        })
+    }
+    dismissable = () => {
+        this.setState({
+            visible: false,
+            selectedData: {},
+        })
+    }
     render() {
-        const { error, isLoaded } = this.state;
+        const { error, isLoaded, visible, selectedData } = this.state;
         if (error) {
             return <div>Error: {error.message}</div>;
         } else if (!isLoaded) {
@@ -42,12 +55,12 @@ class Pizza extends Component {
                             <div className="row">
                                 <div className="col-lg-11 col-md-11 mb-11">
                                     <h1><strong>Pizzas </strong> </h1>
-                                    <ul>{<PizzaData data={this.state.pizzasData} />}</ul>
+                                    <ul>{<PizzaData data={this.state.pizzasData} openModal={this.handleModalOpen}/>}</ul>
                                 </div>
                             </div>
                         </div>
                     </section>
-                    <PizzasModal />
+                    <PizzasModal visible={visible} closeModal={this.dismissable} selectedData={selectedData}/>
                 </>
             )
         }

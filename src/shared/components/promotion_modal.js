@@ -11,15 +11,19 @@ class PromotionModal extends Component {
   state = {
     quantity: 0
   }
-  removeModel = () => {
+
+  removeModal = () => {
     this.props.closeModal()
     this.setState({quantity: 0})
   }
-  add_to_cart = async () => {
-    const cartData = {...this.props.selectedData,...this.state}
+  add_to_cart = async() => {
+    var cartData = {
+      data: this.props.selectedData,
+      quantity: this.state.quantity
+    }
     await this.CartOperation.setNewCartElement(cartData)
-    console.log(cartData);
-    this.removeModel()
+    console.log(cartData)
+    this.removeModal()
   }
   handleState = (value) => {
     this.setState({
@@ -39,7 +43,7 @@ class PromotionModal extends Component {
                     <div className="container-fluid">
                       <div className="row">
                         <div className="col-lg-12 col-md-12 col-sm-12">
-                          <button type="button" className="close" data-dismiss="modal" aria-label="Close" onClick={this.removeModel}><span aria-hidden="true">&times;</span></button>
+                          <button type="button" className="close" data-dismiss="modal" aria-label="Close" onClick={this.removeModal}><span aria-hidden="true">&times;</span></button>
                         </div>
                       </div>
                       <div className="row">

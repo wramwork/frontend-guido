@@ -5,7 +5,7 @@ import Slider from "./features/slider";
 import Promotions from "./features/promotion";
 import MorePromotion from "./features/more_promotion";
 import Pizza from "./features/pizza";
-import Basket from "./features/burritos";
+import Basket from "./features/baskets";
 import OtherMeals from "./features/other_meals";
 import Footer from "./features/footer";
 

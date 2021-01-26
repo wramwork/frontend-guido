@@ -7,6 +7,9 @@ export default class MorePromotionData extends Component {
             promotiondata: props.promotionData
         }
     }
+    openModal = data => e => {
+        this.props.openModal(data)
+      }
   render() {
     return (
         this.state.promotiondata.map(element => (
@@ -18,7 +21,7 @@ export default class MorePromotionData extends Component {
                         </div>
                         <div className="col-lg-1 col-md-1 col-sm-1">
                             {/* Button trigger modal  */}
-                            <button type="button" className="btn" data-toggle="modal" data-target="#myModal"><img src="imagenes/iconos/plus (1).svg" className="icono-agregar" alt="" /></button>
+                            <button type="button" className="btn" data-toggle="modal" data-target="#myModal" onClick={this.openModal(element)}><img src="imagenes/iconos/plus (1).svg" className="icono-agregar" alt="" /></button>
                         </div>
                         </>
         ))
