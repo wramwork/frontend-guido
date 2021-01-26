@@ -7,7 +7,7 @@ export default class Dropdown extends Component {
         this.state ={
             selected:0
         }
-        
+
     }
     handleChange = (e) => {
         this.setState({selected: e.target.value})
@@ -17,24 +17,32 @@ export default class Dropdown extends Component {
         if (this.props.quantity)
         this.props.quantity(e.target.value, name);
       }  
+    
+      setDefault = ()=>{
+          this.setState({selected:0})
+          this.render()
+          console.log(this.state)
+      }
+
+      dropdown = (limit) => {
+        let rows = [];
+        for (let i = 0; i < limit; i++) {
+            if (i===this.state.selected) {
+                rows.push(<option selected>{this.state.selected}</option>)
+            }
+            else{
+                rows.push(<option>{i}</option>)
+            }
+        }
+        return rows
+      }
     render() {
         const {limit} = this.props;
         return (
                 <>
-                    <select name="" className="btn btn-danger  btn-sm" onChange={this.handleChange}>
+                    <select className="btn btn-danger  btn-sm" onChange={this.handleChange}>
                         {
-                            (() => {
-                                let rows = [];
-                                for (let i = 0; i < limit; i++) {
-                                    if (i===0) {
-                                        rows.push(<option selected>{this.state.selected}</option>)
-                                    }
-                                    else{
-                                        rows.push(<option>{i}</option>)
-                                    }
-                                }
-                                return rows
-                            })()
+                            this.dropdown(limit)
                         }
                     </select>
                 </>

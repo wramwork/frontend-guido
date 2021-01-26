@@ -25,8 +25,10 @@ export default class BasketCard extends Component {
       }
 
     removeModal = () => {
-    this.state.quantity = {}
+    this.setState({quantity: {}})
     this.setState({clarifications: ""})
+    this.child.setDefault()
+    console.log(this.state)
     }
     handleState = (value, element) => {
         this.state.quantity[element] = value
@@ -57,7 +59,7 @@ export default class BasketCard extends Component {
                                             <div className="col-lg-6 col-md-6 col-sm-6">
                                                 {ele.map(element => (
                                                     <>
-                                                        <Dropdown limit={13} quantity={this.handleState} name={element} />
+                                                        <Dropdown limit={13} quantity={this.handleState} name={element} ref={instance => this.child = instance}/>
                                                         <span className="caret">{element}</span> <br />
                                                     </>
                                                 ))}
