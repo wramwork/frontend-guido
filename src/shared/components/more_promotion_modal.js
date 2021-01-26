@@ -3,7 +3,10 @@ import Dropdown from "./dropdown";
 import CartOperation from "../../core/utility/cart";
 
 class MorePromotionModal extends Component {
-
+  constructor(props) {
+    super(props)
+    this.cart = new CartOperation();
+  }
   modelStyle = {
     width: '100%',
     height: '3em'
@@ -35,8 +38,7 @@ class MorePromotionModal extends Component {
       quantity: this.state.quantity,
       clarifications: this.state.clarifications
     }
-    await new CartOperation().setNewCartElement(cartData)
-    console.log(cartData)
+    await this.cart.setNewCartElement(cartData)
     this.removeModal()
   }
   handleState = (value, element) => {

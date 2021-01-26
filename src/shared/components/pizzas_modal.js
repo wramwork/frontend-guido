@@ -3,6 +3,10 @@ import Dropdown from "./dropdown";
 import CartOperation from "../../core/utility/cart";
 
 class PizzasModal extends Component {
+  constructor(props) {
+    super(props)
+    this.cart = new CartOperation();
+  }
   state = {
     quantity: {
       chica: 0,
@@ -15,15 +19,13 @@ class PizzasModal extends Component {
       chica: 0,
       grande: 0
     }
-    console.log(this.state)
   }
   add_to_cart = async() => {
     var cartData = {
       data: this.props.selectedData,
       quantity: this.state.quantity
     }
-    await new CartOperation().setNewCartElement(cartData)
-    console.log(cartData)
+    await this.cart.setNewCartElement(cartData)
     this.removeModal()
   }
   handleState = (value, element) => {

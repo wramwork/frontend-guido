@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import ApiGateway from "../../core/apis/ApiGateway";
 import * as myConstClass from "../../core/utility/constants";
+import CartOperation from "../../core/utility/cart";
 
 
 class MyOrderModal extends Component {
@@ -13,6 +14,7 @@ class MyOrderModal extends Component {
       department: ""
     }
     this.api_gateway = new ApiGateway();
+    this.cart = new CartOperation();
     this.handleChange = this.handleChange.bind(this)
     this.confirmOrder = this.confirmOrder.bind(this)
     this.closeModal = this.closeModal.bind(this)
@@ -24,9 +26,11 @@ class MyOrderModal extends Component {
       "clarifications": this.state.clarifications,
       "direction": this.state.direction,
       "number": this.state.number,
-      "department": this.state.department
+      "department": this.state.department,
+      "data": this.cart.getAllCartElement()
     }
     data = await this.api_gateway.postData(myConstClass.CONFIRM_ORDER, data)
+    this.cart.clearCart()
     this.closeModal()
   }
 
@@ -60,7 +64,6 @@ class MyOrderModal extends Component {
                     <button type="button" className="close" data-dismiss="modal" aria-label="Close" onClick={this.closeModal}><span aria-hidden="true">&times;</span></button>
                   </div>
                   <div className="modal-body">
-                  <form action="" onSubmit={this.confirmOrder}>
                     <input type="text" placeholder=" Aclaraciones" className="aclaraciones" name="clarifications" value={this.state.clarifications} onChange={this.handleChange} /> <br />
                     <div className="form-input-group">
                       <label>DATOS DE ENVIO</label> <br />
@@ -74,8 +77,7 @@ class MyOrderModal extends Component {
                         </div>
                       </div>
                     </div> <br />
-                    <button className="btn btn-danger btn-block" data-dismiss="modal">CONFIRMAR PEDIDO</button> <br />
-                  </form>
+                    <button className="btn btn-danger btn-block" onClick={this.confirmOrder} data-dismiss="modal">CONFIRMAR PEDIDO</button> <br />
                   </div>
                 </div>
               </div>

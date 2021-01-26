@@ -22,7 +22,6 @@ class PromotionModal extends Component {
       quantity: this.state.quantity
     }
     await this.CartOperation.setNewCartElement(cartData)
-    console.log(cartData)
     this.removeModal()
   }
   handleState = (value) => {

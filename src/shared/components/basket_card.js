@@ -20,7 +20,6 @@ export default class BasketCard extends Component {
           clarifications: this.state.clarifications
         }
         await this.CartOperation.setNewCartElement(cartData)
-        console.log(cartData)
         this.removeModal()
       }
 

@@ -103,7 +103,6 @@ class LoginModal extends Component {
                   <div className="modal-body">
                     <div className="tab-content">
                       <div role="tabpanel" className="tab-pane active form-are" id="login">
-                        <form action="" onSubmit={this.login}>
                           <div className="form-bor">
                             <div className="form-input-group">
                               <label>Mail</label> <br />
@@ -116,17 +115,15 @@ class LoginModal extends Component {
                             </div> <br />
 
                             <div className="form-input-group">
-                              <button className="btn btn-danger btn-md" data-dismiss="modal" >ACEPTAR</button> <br /> <br />
+                              <button className="btn btn-danger btn-md" data-dismiss="modal" onClick={this.login}>ACEPTAR</button> <br /> <br />
 
                               <a className="forgot-pass" >¿Olvidaste tu contraseña?</a>
                             </div>
 
                           </div>
-                        </form>
 
                       </div>
                       <div role="tabpanel" className="tab-pane" id="profile">
-                        <form action="" onSubmit={this.register}>
                           <div className="form-bor">
                             <div className="form-input-group">
                               <label>Nombre y Apellido</label> <br />
@@ -165,11 +162,10 @@ class LoginModal extends Component {
                               <input type="text" name="phone" placeholder="" value={this.state.phone} onChange={this.handleChange} />
                             </div>
                             <div className="form-input-group"> <br />
-                              <button className="btn btn-danger btn-md" data-dismiss="modal" >REGISTRARME</button>
+                              <button className="btn btn-danger btn-md" onClick={this.register} data-dismiss="modal">REGISTRARME</button>
                             </div>
                           </div>
 
-                        </form>
                       </div>
                     </div>
                   </div>

@@ -9,12 +9,11 @@ export default class CartOperation{
     }
 
     getAllCartElement = () => {
-        StorageGateway.get(this.key)
+        return StorageGateway.get(this.key)
     }
 
     setNewCartElement = async (ele) => {
         let data = StorageGateway.get(this.key);
-        console.log(data)
         if(data){
             data = JSON.parse(data);
             data.push(ele)
@@ -25,6 +24,10 @@ export default class CartOperation{
         data = JSON.stringify(data)
         StorageGateway.remove(this.key);
         await StorageGateway.set(this.key,data)
+    }
+
+    clearCart = async (ele) => {
+        StorageGateway.remove(this.key)
     }
 }
   
