@@ -9,6 +9,10 @@ import Basket from "./features/burritos";
 import OtherMeals from "./features/other_meals";
 import Footer from "./features/footer";
 
+// import { Provider } from 'react-redux'
+// import store from './core/store/ConfigStore'
+
+
 function App() {
   return (
     <>

@@ -1,17 +1,24 @@
 import React, { Component } from 'react';
 import Dropdown from "./dropdown";
+import CartOperation from "../../core/utility/cart";
 
-class PromotionModal extends Component {
+
+class PromotionModal extends Component {  
+  constructor(props){
+    super(props)
+    this.CartOperation = new CartOperation()
+  }
   state = {
     quantity: 0
   }
   removeModel = () => {
-    console.log(this.props)
     this.props.closeModal()
     this.setState({quantity: 0})
   }
-  add_to_cart = () => {
-    // selectedData contains the promotion to be ordered. 
+  add_to_cart = async () => {
+    const cartData = {...this.props.selectedData,...this.state}
+    await this.CartOperation.setNewCartElement(cartData)
+    console.log(cartData);
     this.removeModel()
   }
   handleState = (value) => {
