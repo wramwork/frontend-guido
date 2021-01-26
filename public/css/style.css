@@ -177,8 +177,8 @@
 body {
   margin: 0% 0% 0% 0%;
   padding: 0%;
-  /* overflow:auto; */
-  overflow: visible !important;
+  overflow:auto;
+  /* overflow: visible !important; */
   border: 0%;
   font-family: "Myriad Web Pro";
   background-color: #e6e6e6; }

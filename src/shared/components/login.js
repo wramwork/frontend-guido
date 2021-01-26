@@ -116,7 +116,7 @@ class LoginModal extends Component {
                             </div> <br />
 
                             <div className="form-input-group">
-                              <button className="btn btn-danger btn-md">ACEPTAR</button> <br /> <br />
+                              <button className="btn btn-danger btn-md" data-dismiss="modal" >ACEPTAR</button> <br /> <br />
 
                               <a className="forgot-pass" >¿Olvidaste tu contraseña?</a>
                             </div>
@@ -165,7 +165,7 @@ class LoginModal extends Component {
                               <input type="text" name="phone" placeholder="" value={this.state.phone} onChange={this.handleChange} />
                             </div>
                             <div className="form-input-group"> <br />
-                              <button className="btn btn-danger btn-md" >REGISTRARME</button>
+                              <button className="btn btn-danger btn-md" data-dismiss="modal" >REGISTRARME</button>
                             </div>
                           </div>
 

@@ -61,7 +61,7 @@ class PizzasModal extends Component {
                       </div>
                       <div className="row">
                         <div className="col-lg-12 col-md-12 col-sm-12">
-                          <input className="btn btn-danger btn-block" type="submit" value="AGREGAR A MI PEDIDO" onClick={this.add_to_cart} />
+                          <input className="btn btn-danger btn-block" type="submit" value="AGREGAR A MI PEDIDO" data-dismiss="modal" onClick={this.add_to_cart} />
                         </div>
                       </div>
                     </div>

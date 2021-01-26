@@ -126,7 +126,7 @@ class MorePromotionModal extends Component {
                       <span className="caret">  Cantidad</span>
                     </div>
                     <div className="col-lg-9 col-md-9 col-sm-9">
-                      <button className="btn btn-danger  btn-block" value="AGREGAR A MI PEDIDO" onClick={this.add_to_cart}>AGREGAR A MI PEDIDO</button>
+                      <button className="btn btn-danger  btn-block" value="AGREGAR A MI PEDIDO" data-dismiss="modal" onClick={this.add_to_cart}>AGREGAR A MI PEDIDO</button>
                     </div>
                   </div> <br />
                 </div>

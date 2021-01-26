@@ -74,7 +74,7 @@ class MyOrderModal extends Component {
                         </div>
                       </div>
                     </div> <br />
-                    <button className="btn btn-danger btn-block">CONFIRMAR PEDIDO</button> <br />
+                    <button className="btn btn-danger btn-block" data-dismiss="modal">CONFIRMAR PEDIDO</button> <br />
                   </form>
                   </div>
                 </div>
