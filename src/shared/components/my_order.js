@@ -29,7 +29,7 @@ class MyOrderModal extends Component {
       "department": this.state.department,
       "data": this.cart.getAllCartElement()
     }
-    data = await this.api_gateway.postData(myConstClass.CONFIRM_ORDER, data)
+    await this.api_gateway.postData(myConstClass.CONFIRM_ORDER, data)
     this.cart.clearCart()
     this.closeModal()
   }

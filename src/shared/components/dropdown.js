@@ -5,7 +5,7 @@ export default class Dropdown extends Component {
     constructor(props) {
         super(props)
         this.state ={
-            selected:0
+            selected:this.props.selected
         }
 
     }
@@ -17,32 +17,26 @@ export default class Dropdown extends Component {
         if (this.props.quantity)
         this.props.quantity(e.target.value, name);
       }  
-    
-      setDefault = ()=>{
-          this.setState({selected:0})
-          this.render()
-          console.log(this.state)
-      }
 
-      dropdown = (limit) => {
+      dropdown = (limit, selected) => {
         let rows = [];
         for (let i = 0; i < limit; i++) {
-            if (i===this.state.selected) {
-                rows.push(<option selected>{this.state.selected}</option>)
+            if (i===selected) {
+                rows.push(<option key={i} selected>{i}</option>)
             }
             else{
-                rows.push(<option>{i}</option>)
+                rows.push(<option key={i}>{i}</option>)
             }
         }
         return rows
       }
     render() {
-        const {limit} = this.props;
+        const {limit, selected} = this.props;
         return (
                 <>
                     <select className="btn btn-danger  btn-sm" onChange={this.handleChange}>
                         {
-                            this.dropdown(limit)
+                            this.dropdown(limit, selected)
                         }
                     </select>
                 </>

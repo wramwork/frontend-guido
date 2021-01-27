@@ -42,7 +42,7 @@ class MorePromotionModal extends Component {
     this.removeModal()
   }
   handleState = (value, element) => {
-    if (element == "quantity"){
+    if (element === "quantity"){
       this.state.quantity.total_quantity = value; 
     }
     else {

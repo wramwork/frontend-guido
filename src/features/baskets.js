@@ -28,7 +28,7 @@ export default class Basket extends Component {
   }
 
   render() {
-    const { error, isLoaded, visible, selectedData} = this.state;
+    const { error, isLoaded} = this.state;
     if (error) {
       return <div>Error: {error.message}</div>;
   } else if (!isLoaded) {

@@ -8,7 +8,8 @@ export default class BasketCard extends Component {
         super(props)
         this.state = {
             quantity: {},
-            clarifications: ""
+            clarifications: "",
+            selected: 0
         }
         this.common = new Common();
         this.CartOperation = new CartOperation()
@@ -23,14 +24,12 @@ export default class BasketCard extends Component {
         this.removeModal()
       }
 
-    removeModal = () => {
-    this.setState({quantity: {}})
-    this.setState({clarifications: ""})
-    this.child.setDefault()
-    console.log(this.state)
+    removeModal = async() => {
+        this.setState({quantity: {}, clarifications: "", selected: 0})
     }
     handleState = (value, element) => {
         this.state.quantity[element] = value
+        this.setState({selected: value})
       }
     handleChange = (event) => {
     this.setState({
@@ -58,7 +57,7 @@ export default class BasketCard extends Component {
                                             <div className="col-lg-6 col-md-6 col-sm-6">
                                                 {ele.map(element => (
                                                     <>
-                                                        <Dropdown limit={13} quantity={this.handleState} name={element} ref={instance => this.child = instance}/>
+                                                        <Dropdown limit={13} quantity={this.handleState} name={element} selected={this.state.selected} />
                                                         <span className="caret">{element}</span> <br />
                                                     </>
                                                 ))}

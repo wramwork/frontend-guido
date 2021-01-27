@@ -15,10 +15,11 @@ class PizzasModal extends Component {
   }
   removeModal = () => {
     this.props.closeModal()
-    this.state.quantity= {
+    this.setState({quantity: {
       chica: 0,
       grande: 0
-    }
+    }}
+    )
   }
   add_to_cart = async() => {
     var cartData = {
