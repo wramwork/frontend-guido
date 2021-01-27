@@ -3,6 +3,9 @@ import ApiGateway from "../../core/apis/ApiGateway";
 import StorageGateway from "../../core/utility/storage-gateway";
 import * as myConstClass from "../../core/utility/constants";
 
+const validEmailRegex = 
+  RegExp(/^(([^<>()\[\]\.,;:\s@\"]+(\.[^<>()\[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i);
+
 class LoginModal extends Component {
 
   constructor(props) {
@@ -15,7 +18,18 @@ class LoginModal extends Component {
       direction: "",
       phone: "",
       repeatedPassword: "",
-      email: ""
+      email: "",
+      iserror : false,
+      errors:{
+        username: "",
+        password: "",
+        firstname: "",
+        lastname: "",
+        direction: "",
+        phone: "",
+        repeatedPassword: "",
+        email: ""
+      }
     }
     this.api_gateway = new ApiGateway();
     this.handleChange = this.handleChange.bind(this)
@@ -26,8 +40,8 @@ class LoginModal extends Component {
 
   async register(e) {
     e.preventDefault();
-    var current = new Date()
-    var data = {
+    let current = new Date()
+    let data = {
       "email": this.state.email,
       "fullName": this.state.firstname + this.state.lastname,
       "address": this.state.direction,
@@ -40,6 +54,7 @@ class LoginModal extends Component {
       "expirationInSeconds": 100,
       "refreshToken": "efgh"
     }
+
     data = await this.api_gateway.postData(myConstClass.SIGNUP, data)
     const authToken = 'Bearer ' + data.accessToken;
     StorageGateway.set("authToken", authToken);
@@ -47,6 +62,7 @@ class LoginModal extends Component {
     StorageGateway.set("expiredTime", new Date(new Date().setSeconds(new Date().getSeconds() + data.expirationInSeconds)));
     this.closeModal()
   }
+
   async login(e) {
     e.preventDefault();
     var data = {
@@ -56,17 +72,81 @@ class LoginModal extends Component {
       "expirationInSeconds": 100,
       "refreshToken": "efgh"
     }
-    data = await this.api_gateway.postData(myConstClass.LOGIN, data)
-    const authToken = 'Bearer ' + data.accessToken;
-    StorageGateway.set("authToken", authToken);
-    StorageGateway.set("refreshToken", data.refreshToken);
-    StorageGateway.set("expiredTime", new Date(new Date().setSeconds(new Date().getSeconds() + data.expirationInSeconds)));
-    this.closeModal()
+    if(this.state.errors.email 
+      || this.state.errors.password){
+        this.setState({iserror:true,email:'',password:''})
+      }
+      else{
+        data = await this.api_gateway.postData(myConstClass.LOGIN, data)
+        const authToken = 'Bearer ' + data.accessToken;
+        StorageGateway.set("authToken", authToken);
+        StorageGateway.set("refreshToken", data.refreshToken);
+        StorageGateway.set("expiredTime", new Date(new Date().setSeconds(new Date().getSeconds() + data.expirationInSeconds)));
+        this.closeModal()
+      }
+      console.log(this.state)
   }
+
   handleChange(event) {
+    event.preventDefault()
+    const {name,value} = event.target
     this.setState({
-      [event.target.name]: event.target.value
+      [name]: value
     });
+    let errors = this.state.errors
+    switch (name) {
+      case 'firstname': 
+        errors.firstname = 
+          value.length < 3
+            ? 'Firstname must be 3 characters long!'
+            : '';
+        break;
+      case 'lastname': 
+        errors.lastname = 
+          value.length < 3
+            ? 'Lastname must be 3 characters long!'
+            : '';
+        break;
+      case 'username': 
+        errors.username = 
+          value.length < 3
+            ? 'username must be 3 characters long!'
+            : '';
+        break;
+      case 'email': 
+        errors.email = 
+          validEmailRegex.test(value)
+            ? ''
+            : 'Email is not valid!';
+        break;
+      case 'password': 
+        errors.password = 
+          value.length < 8
+            ? 'Password must be 8 characters long!'
+            : '';
+        break;
+      case 'repeatedPassword': 
+        errors.repeatedPassword = 
+          value != this.state.password
+            ? 'Repeated Password must be equal to password'
+            : '';
+        break;
+      case 'direction': 
+        errors.direction = 
+          value.length < 3
+            ? 'Direction must be greater than 3 length'
+            : '';
+        break;
+      case 'phone': 
+        errors.phone = 
+          value.length < 3
+            ? 'phone must be greater than 3 length'
+            : '';
+        break;
+      default:
+        break;
+    }
+    console.log(this.state.errors)
   }
 
   closeModal() {
@@ -79,7 +159,18 @@ class LoginModal extends Component {
       direction: "",
       phone: "",
       repeatedPassword: "",
-      email: ""
+      email: "",
+      iserror : false,
+      errors:{
+        username: "",
+        password: "",
+        firstname: "",
+        lastname: "",
+        direction: "",
+        phone: "",
+        repeatedPassword: "",
+        email: ""
+      }
     })
   }
 
@@ -106,6 +197,7 @@ class LoginModal extends Component {
                           <div className="form-bor">
                             <div className="form-input-group">
                               <label>Mail</label> <br />
+                              <label style={{color:'red'}}>{this.state.iserror && this.state.errors.email}</label>
                               <input type="text" name="email" value={this.state.email} onChange={this.handleChange} />
                             </div>
 
