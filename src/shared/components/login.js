@@ -57,7 +57,7 @@ class LoginModal extends Component {
       "expirationInSeconds": 100,
       "refreshToken": "efgh"
     }
-    await this.validate()
+    await this.validate("register")
     if (this.state.iserror) {
       this.setState({ showError: true })
     }
@@ -71,28 +71,89 @@ class LoginModal extends Component {
     }
   }
 
-  validate = async() => {
-    if (this.state.email == "")
-    {
+  validate = async (method = "") => {
+    this.setState({ iserror: false })
+    let errors = this.state.errors
+    if (this.state.email == "") {
       this.setState({
         iserror: true,
       })
-      let state = this.state
-      state.errors.email = "Email can not be Empty"
+      errors.email = "Email can not be Empty"
     }
-    if (this.state.password == ""){
+    else if (!validEmailRegex.test(this.state.email)) {
       this.setState({
         iserror: true,
       })
-      let state = this.state
-      state.errors.password = "Password must be 8 characters long!"
+      errors.email = "Email is not valid!"
     }
-    if (this.state.username == ""){
+    else {
+      errors.email = ""
+    }
+    if (this.state.password == "" || this.state.password.length < 8) {
       this.setState({
         iserror: true,
       })
-      let state = this.state
-      state.errors.username = "Username can not be empty"
+      errors.password = "Password must be 8 characters long!"
+    }
+    else {
+      errors.password = ""
+    }
+
+    if (method == "register") {
+      if (this.state.username == "") {
+        this.setState({
+          iserror: true,
+        })
+        errors.username = "Username can not be empty"
+      }
+      else {
+        errors.username = ""
+      }
+      if (this.state.firstname.length < 3) {
+        this.setState({
+          iserror: true,
+        })
+        errors.firstname = "Firstname must be 3 characters long!"
+      }
+      else {
+        errors.firstname = ""
+      }
+      if (this.state.lastname.length < 3) {
+        this.setState({
+          iserror: true,
+        })
+        errors.lastname = "Lastname must be 3 characters long!"
+      }
+      else {
+        errors.lastname = ""
+      }
+      if (this.state.repeatedPassword != this.state.password) {
+        this.setState({
+          iserror: true,
+        })
+        errors.repeatedPassword = "Repeated Password must be equal to password"
+      }
+      else {
+        errors.repeatedPassword = ""
+      }
+      if (this.state.direction.length < 3) {
+        this.setState({
+          iserror: true,
+        })
+        errors.direction = "Direction must be 3 characters long!"
+      }
+      else {
+        errors.direction = ""
+      }
+      if (this.state.phone.length < 3) {
+        this.setState({
+          iserror: true,
+        })
+        errors.phone = "Phone must be 3 characters long!"
+      }
+      else {
+        errors.phone = ""
+      }
     }
   }
 
@@ -106,7 +167,7 @@ class LoginModal extends Component {
       "expirationInSeconds": 100,
       "refreshToken": "efgh"
     }
-    await this.validate()
+    await this.validate("login")
     if (this.state.iserror) {
       this.setState({ showError: true })
     }
@@ -116,77 +177,17 @@ class LoginModal extends Component {
       StorageGateway.set("authToken", authToken);
       StorageGateway.set("refreshToken", data.refreshToken);
       StorageGateway.set("expiredTime", new Date(new Date().setSeconds(new Date().getSeconds() + data.expirationInSeconds)));
-      this.setState({ iserror: false })
       this.closeModal()
     }
-    console.log(this.state)
   }
 
   handleChange(event) {
     event.preventDefault()
-    this.setState({showError: false})
+    this.setState({ showError: false })
     const { name, value } = event.target
     this.setState({
       [name]: value
     });
-    let errors = this.state.errors
-    switch (name) {
-      case 'firstname':
-        errors.firstname =
-          value.length < 3
-            ? 'Firstname must be 3 characters long!'
-            : '';
-        if (errors)
-          this.setState({ iserror: true })
-        break;
-      case 'lastname':
-        errors.lastname =
-          value.length < 3
-            ? 'Lastname must be 3 characters long!'
-            : '';
-        break;
-      case 'username':
-        errors.username =
-          value.length < 3
-            ? 'username must be 3 characters long!'
-            : '';
-        break;
-      case 'email':
-        errors.email =
-          validEmailRegex.test(value)
-            ? ''
-            : 'Email is not valid!';
-        if (errors)
-          this.setState({ iserror: true })
-        break;
-      case 'password':
-        errors.password =
-          value.length < 8
-            ? 'Password must be 8 characters long!'
-            : '';
-        break;
-      case 'repeatedPassword':
-        errors.repeatedPassword =
-          value != this.state.password
-            ? 'Repeated Password must be equal to password'
-            : '';
-        break;
-      case 'direction':
-        errors.direction =
-          value.length < 3
-            ? 'Direction must be greater than 3 length'
-            : '';
-        break;
-      case 'phone':
-        errors.phone =
-          value.length < 3
-            ? 'phone must be greater than 3 length'
-            : '';
-        break;
-      default:
-        break;
-    }
-    console.log(this.state.errors)
   }
   clearState = () => {
     this.setState({

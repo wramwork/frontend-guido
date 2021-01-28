@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import ApiGateway from "../../core/apis/ApiGateway";
 import * as myConstClass from "../../core/utility/constants";
 import CartOperation from "../../core/utility/cart";
+import Common from "../../core/utility/common";
 
 
 class MyOrderModal extends Component {
@@ -11,13 +12,22 @@ class MyOrderModal extends Component {
       clarifications: "",
       direction: "",
       number: "",
-      department: ""
+      department: "",
+      iserror: false,
+      showError: false,
+      errors: {
+        clarifications: "",
+        direction: "",
+        number: "",
+        department: ""
+      }
     }
     this.api_gateway = new ApiGateway();
     this.cart = new CartOperation();
     this.handleChange = this.handleChange.bind(this)
     this.confirmOrder = this.confirmOrder.bind(this)
     this.closeModal = this.closeModal.bind(this)
+    this.common = new Common()
   }
 
   async confirmOrder(e) {
@@ -29,25 +39,73 @@ class MyOrderModal extends Component {
       "department": this.state.department,
       "data": this.cart.getAllCartElement()
     }
-    await this.api_gateway.postData(myConstClass.CONFIRM_ORDER, data)
-    this.cart.clearCart()
-    this.closeModal()
+    await this.validate()
+    if (this.state.iserror) {
+      this.setState({ showError: true })
+    }
+    else {
+      await this.api_gateway.postData(myConstClass.CONFIRM_ORDER, data)
+      this.cart.clearCart()
+      this.closeModal()
+    }
   }
-
+  validate = async () => {
+    this.setState({ iserror: false })
+    let errors = this.state.errors
+    if (this.state.direction.length < 3) {
+      this.setState({
+        iserror: true,
+      })
+      errors.direction = "Direction must be 3 characters long!"
+    }
+    else {
+      errors.direction = ""
+    }
+    if (this.state.number.length < 1) {
+      this.setState({
+        iserror: true,
+      })
+      errors.number = "Number can not be empty"
+    }
+    else {
+      errors.number = ""
+    }
+    if (this.state.department.length < 3) {
+      this.setState({
+        iserror: true,
+      })
+      errors.department = "Department must be 3 characters long!"
+    }
+    else {
+      errors.department = ""
+    }
+  }
   handleChange(event) {
+    event.preventDefault()
+    this.setState({ showError: false })
+    const { name, value } = event.target
     this.setState({
-      [event.target.name]: event.target.value
+      [name]: value
     });
   }
 
   closeModal() {
-    this.props.handle("myOrderModal")
     this.setState({
       clarifications: "",
       direction: "",
       number: "",
-      department: ""
+      department: "",
+      iserror: false,
+      showError: false,
+      errors: {
+        clarifications: "",
+        direction: "",
+        number: "",
+        department: ""
+      }
     })
+    this.common.setbody()
+    this.props.handle("myOrderModal")
   }
 
   render() {
@@ -67,17 +125,20 @@ class MyOrderModal extends Component {
                     <input type="text" placeholder=" Aclaraciones" className="aclaraciones" name="clarifications" value={this.state.clarifications} onChange={this.handleChange} /> <br />
                     <div className="form-input-group">
                       <label>DATOS DE ENVIO</label> <br />
+                      <label style={{ color: 'red' }}>{this.state.showError && this.state.errors.direction}</label>
                       <input type="text" placeholder=" Dirección" name="direction" value={this.state.direction} onChange={this.handleChange} />
                       <div className="row">
                         <div className="col-md-6">
+                          <label style={{ color: 'red' }}>{this.state.showError && this.state.errors.number}</label>
                           <input type="text" placeholder=" N°" name="number" value={this.state.number} onChange={this.handleChange} />
                         </div>
                         <div className="col-md-6">
+                          <label style={{ color: 'red' }}>{this.state.showError && this.state.errors.department}</label>
                           <input type="text" placeholder=" Depto" name="department" value={this.state.department} onChange={this.handleChange} />
                         </div>
                       </div>
                     </div> <br />
-                    <button className="btn btn-danger btn-block" onClick={this.confirmOrder} data-dismiss="modal">CONFIRMAR PEDIDO</button> <br />
+                    <button className="btn btn-danger btn-block" onClick={this.confirmOrder}>CONFIRMAR PEDIDO</button> <br />
                   </div>
                 </div>
               </div>
