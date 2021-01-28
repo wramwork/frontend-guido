@@ -1,30 +1,62 @@
 import React, { Component } from 'react';
 import Dropdown from "./dropdown";
 import CartOperation from "../../core/utility/cart";
+import Common from "../../core/utility/common";
 
 
-class PromotionModal extends Component {  
-  constructor(props){
+class PromotionModal extends Component {
+  constructor(props) {
     super(props)
     this.CartOperation = new CartOperation()
+    this.common = new Common();
   }
   state = {
-    quantity: 0
+    quantity: 0,
+    iserror: false,
+    showError: false,
+    errors: {
+      quantity: ""
+    }
   }
 
   removeModal = () => {
     this.props.closeModal()
-    this.setState({quantity: 0})
+    this.setState({
+      quantity: 0, iserror: false,
+      showError: false,
+      errors: {
+        quantity: ""
+      }
+    })
+    this.common.setbody()
   }
-  add_to_cart = async() => {
+  validate = async () => {
+    this.setState({ iserror: false })
+    let errors = this.state.errors
+    if (this.state.quantity == 0) {
+      this.setState({ iserror: true })
+      errors.quantity = "Please select quantity"
+    }
+    else {
+      errors.quantity = ""
+    }
+  }
+  add_to_cart = async () => {
     var cartData = {
       data: this.props.selectedData,
       quantity: this.state.quantity
     }
-    await this.CartOperation.setNewCartElement(cartData)
-    this.removeModal()
+    await this.validate()
+    if (this.state.iserror) {
+      this.setState({ showError: true })
+    }
+    else {
+      await this.CartOperation.setNewCartElement(cartData)
+      this.removeModal()
+    }
   }
   handleState = (value) => {
+    this.setState({ showError: false })
     this.setState({
       quantity: value
     })
@@ -48,12 +80,13 @@ class PromotionModal extends Component {
                       <div className="row">
                         <div className="col-lg-12 col-md-12 col-sm-12 ">
                           <h1 className="caret"> <strong>CANTIDAD</strong></h1>
-                          <Dropdown limit={11} quantity={this.handleState}/>
+                          <Dropdown limit={11} quantity={this.handleState} />
                         </div>
                       </div>
                       <div className="row">
                         <div className="col-lg-12 col-md-12 col-sm-12">
-                          <input className="btn btn-danger btn-block" type="submit" value="AGREGAR A MI PEDIDO" data-dismiss="modal" onClick={this.add_to_cart}/>
+                          <label style={{ color: 'red' }}>{this.state.showError && this.state.errors.quantity}</label>
+                          <input className="btn btn-danger btn-block" type="submit" value="AGREGAR A MI PEDIDO" onClick={this.add_to_cart} />
                         </div>
                       </div>
                     </div>

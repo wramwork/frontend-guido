@@ -1,16 +1,23 @@
 import React, { Component } from 'react';
 import Dropdown from "./dropdown";
 import CartOperation from "../../core/utility/cart";
+import Common from "../../core/utility/common";
 
 class PizzasModal extends Component {
   constructor(props) {
     super(props)
     this.cart = new CartOperation();
+    this.common = new Common();
   }
   state = {
     quantity: {
       chica: 0,
       grande: 0
+    },
+    iserror: false,
+    showError: false,
+    errors: {
+      quantity: ""
     }
   }
   removeModal = () => {
@@ -18,18 +25,46 @@ class PizzasModal extends Component {
     this.setState({quantity: {
       chica: 0,
       grande: 0
-    }}
+    },
+    iserror: false,
+    showError: false,
+    errors: {
+      quantity: ""
+    }
+  }
+    
     )
+    this.common.setbody()
+  }
+  validate = async() => {
+    this.setState({iserror: false})
+    let quantity = this.state.quantity.chica + this.state.quantity.grande
+    let errors = this.state.errors
+    if (quantity == 0)
+    {
+      this.setState({iserror: true})
+      errors.quantity = "Please select quantity"
+    }
+    else{
+      errors.quantity = ""
+    }
   }
   add_to_cart = async() => {
     var cartData = {
       data: this.props.selectedData,
       quantity: this.state.quantity
     }
+    await this.validate()
+    if (this.state.iserror){
+      this.setState({showError: true})
+    }
+    else{
     await this.cart.setNewCartElement(cartData)
     this.removeModal()
+    }
   }
   handleState = (value, element) => {
+    this.setState({showError: false})
     this.state.quantity[element] = value
   }
   render() {
@@ -64,7 +99,8 @@ class PizzasModal extends Component {
                       </div>
                       <div className="row">
                         <div className="col-lg-12 col-md-12 col-sm-12">
-                          <input className="btn btn-danger btn-block" type="submit" value="AGREGAR A MI PEDIDO" data-dismiss="modal" onClick={this.add_to_cart} />
+                        <label style={{ color: 'red' }}>{this.state.showError && this.state.errors.quantity}</label>
+                          <input className="btn btn-danger btn-block" type="submit" value="AGREGAR A MI PEDIDO" onClick={this.add_to_cart} />
                         </div>
                       </div>
                     </div>
